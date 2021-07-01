@@ -21,9 +21,6 @@ int main(int argc, char const* argv[]) {
     for (int t = 0; t < 1024; t++) {
         PeriodicBoundaryConditions::apply(f);
         Diffusion::apply(f, tmp, 1. / 32.);
-
-        // copy over tmp to f
-        f.setFrom(tmp);
     }
 
     std::ofstream final_of("final.mat");
