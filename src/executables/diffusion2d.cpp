@@ -18,7 +18,7 @@ int main(int argc, char const* argv[]) {
     std::ofstream initial_of("initial.mat");
     IO::write(initial_of, f, 32);
 
-    for (int t = 0; t < 0; t++) {
+    for (int t = 0; t < 1024; t++) {
         PeriodicBoundaryConditions::apply(f);
         Diffusion::apply(f, tmp, 1. / 32.);
 
