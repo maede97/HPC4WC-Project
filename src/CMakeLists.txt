@@ -1,0 +1,3 @@
+add_subdirectory(HPC4WC)
+add_subdirectory(autotuner)
+add_subdirectory(executables)

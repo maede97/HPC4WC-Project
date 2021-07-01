@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# Some files
+*.png
+*.pdf
+
+# Folders
+build
+.vscode
+venv
