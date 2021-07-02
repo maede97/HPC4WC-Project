@@ -11,4 +11,10 @@ void IO::write(std::ostream& out, const Field& f, Field::const_idx_t& k) {
     }
 }
 
+void IO::write(std::ostream& out, const Field& f) {
+    for (Field::idx_t k = 0; k < f.num_k(); k++) {
+        write(out, f, k);
+    }
+}
+
 }  // namespace HPC4WC
