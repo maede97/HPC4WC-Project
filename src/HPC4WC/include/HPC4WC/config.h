@@ -1,5 +1,12 @@
 #pragma once
 
+/**
+ * @brief General note on the configuration
+ * 
+ * @todo Write this note.
+ * 
+ */
+
 #define USE_OPENMP_ON_K
 
 #define BLOCK_SIZE_I 15
