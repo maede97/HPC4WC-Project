@@ -74,6 +74,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classHPC4WC_1_1PeriodicBoundaryConditions-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -83,18 +84,45 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="boundary__condition_8h_source.html">boundary_condition.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:abedcf148fd5bb1b8c9e40fe5ea122ba4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1PeriodicBoundaryConditions.html#abedcf148fd5bb1b8c9e40fe5ea122ba4">PERIODICITY</a> { <a class="el" href="classHPC4WC_1_1PeriodicBoundaryConditions.html#abedcf148fd5bb1b8c9e40fe5ea122ba4a61b5903ade040f8d0d511faccaae1190">ONLY_I</a>
+, <a class="el" href="classHPC4WC_1_1PeriodicBoundaryConditions.html#abedcf148fd5bb1b8c9e40fe5ea122ba4a2c8e688b1c286ee7ca20ff6c1735e43f">ONLY_J</a>
+, <a class="el" href="classHPC4WC_1_1PeriodicBoundaryConditions.html#abedcf148fd5bb1b8c9e40fe5ea122ba4a7b5cb746454abb7af8256fb070470b66">BOTH</a>
+ }</td></tr>
+<tr class="separator:abedcf148fd5bb1b8c9e40fe5ea122ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a8f3c9ee557f201ab9e70909e19b84a9d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1PeriodicBoundaryConditions.html#a8f3c9ee557f201ab9e70909e19b84a9d">apply</a> (<a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;field)</td></tr>
-<tr class="memdesc:a8f3c9ee557f201ab9e70909e19b84a9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply periodic boundary conditions on a field.  <a href="classHPC4WC_1_1PeriodicBoundaryConditions.html#a8f3c9ee557f201ab9e70909e19b84a9d">More...</a><br /></td></tr>
-<tr class="separator:a8f3c9ee557f201ab9e70909e19b84a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ceef9dbf419e678e53555057d1d2322"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1PeriodicBoundaryConditions.html#a4ceef9dbf419e678e53555057d1d2322">apply</a> (<a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;field, const <a class="el" href="classHPC4WC_1_1PeriodicBoundaryConditions.html#abedcf148fd5bb1b8c9e40fe5ea122ba4">PERIODICITY</a> &amp;periodicity=<a class="el" href="classHPC4WC_1_1PeriodicBoundaryConditions.html#abedcf148fd5bb1b8c9e40fe5ea122ba4a7b5cb746454abb7af8256fb070470b66">BOTH</a>)</td></tr>
+<tr class="memdesc:a4ceef9dbf419e678e53555057d1d2322"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply periodic boundary conditions on a field.  <a href="classHPC4WC_1_1PeriodicBoundaryConditions.html#a4ceef9dbf419e678e53555057d1d2322">More...</a><br /></td></tr>
+<tr class="separator:a4ceef9dbf419e678e53555057d1d2322"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Periodic boundary conditions, meaning values will be copied over. </p><dl class="section attention"><dt>Attention</dt><dd>Works only on i and j indices. </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Customize where to apply the boundary conditions. </dd></dl>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8f3c9ee557f201ab9e70909e19b84a9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f3c9ee557f201ab9e70909e19b84a9d">&#9670;&nbsp;</a></span>apply()</h2>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="abedcf148fd5bb1b8c9e40fe5ea122ba4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abedcf148fd5bb1b8c9e40fe5ea122ba4">&#9670;&nbsp;</a></span>PERIODICITY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classHPC4WC_1_1PeriodicBoundaryConditions.html#abedcf148fd5bb1b8c9e40fe5ea122ba4">HPC4WC::PeriodicBoundaryConditions::PERIODICITY</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="abedcf148fd5bb1b8c9e40fe5ea122ba4a61b5903ade040f8d0d511faccaae1190"></a>ONLY_I&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abedcf148fd5bb1b8c9e40fe5ea122ba4a2c8e688b1c286ee7ca20ff6c1735e43f"></a>ONLY_J&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abedcf148fd5bb1b8c9e40fe5ea122ba4a7b5cb746454abb7af8256fb070470b66"></a>BOTH&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4ceef9dbf419e678e53555057d1d2322"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ceef9dbf419e678e53555057d1d2322">&#9670;&nbsp;</a></span>apply()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -106,8 +134,18 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">static void HPC4WC::PeriodicBoundaryConditions::apply </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;&#160;</td>
-          <td class="paramname"><em>field</em></td><td>)</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="classHPC4WC_1_1PeriodicBoundaryConditions.html#abedcf148fd5bb1b8c9e40fe5ea122ba4">PERIODICITY</a> &amp;&#160;</td>
+          <td class="paramname"><em>periodicity</em> = <code><a class="el" href="classHPC4WC_1_1PeriodicBoundaryConditions.html#abedcf148fd5bb1b8c9e40fe5ea122ba4a7b5cb746454abb7af8256fb070470b66">BOTH</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -121,6 +159,7 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">field</td><td>The field to apply the boundary conditions to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">periodicity</td><td>The periodicity to use. Not setting it will set 0 dirichlet-boundary-condition. </td></tr>
   </table>
   </dd>
 </dl>
@@ -133,7 +172,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 2 2021 13:13:42 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Jul 2 2021 13:28:09 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

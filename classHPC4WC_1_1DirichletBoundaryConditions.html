@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ATWCS: HPC4WC::DiagonalInitialCondition Class Reference</title>
+<title>ATWCS: HPC4WC::DirichletBoundaryConditions Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,34 +69,31 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespaceHPC4WC.html">HPC4WC</a></li><li class="navelem"><a class="el" href="classHPC4WC_1_1DiagonalInitialCondition.html">DiagonalInitialCondition</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceHPC4WC.html">HPC4WC</a></li><li class="navelem"><a class="el" href="classHPC4WC_1_1DirichletBoundaryConditions.html">DirichletBoundaryConditions</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="classHPC4WC_1_1DiagonalInitialCondition-members.html">List of all members</a>  </div>
+<a href="classHPC4WC_1_1DirichletBoundaryConditions-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">HPC4WC::DiagonalInitialCondition Class Reference</div>  </div>
+<div class="title">HPC4WC::DirichletBoundaryConditions Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Applies a special IC where we fill diagonally 1.  
- <a href="classHPC4WC_1_1DiagonalInitialCondition.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="initial__condition_8h_source.html">initial_condition.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="boundary__condition_8h_source.html">boundary_condition.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a4895b8b88320ea97063a7f05a0c4d101"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1DiagonalInitialCondition.html#a4895b8b88320ea97063a7f05a0c4d101">apply</a> (<a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;field)</td></tr>
-<tr class="memdesc:a4895b8b88320ea97063a7f05a0c4d101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies this initial condition on the field.  <a href="classHPC4WC_1_1DiagonalInitialCondition.html#a4895b8b88320ea97063a7f05a0c4d101">More...</a><br /></td></tr>
-<tr class="separator:a4895b8b88320ea97063a7f05a0c4d101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8a378cc4347af6b3782d7a11bc9501b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1DirichletBoundaryConditions.html#ac8a378cc4347af6b3782d7a11bc9501b">apply</a> (<a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;field, const double &amp;value=0.)</td></tr>
+<tr class="memdesc:ac8a378cc4347af6b3782d7a11bc9501b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply dirichlet boundary conditions on a field.  <a href="classHPC4WC_1_1DirichletBoundaryConditions.html#ac8a378cc4347af6b3782d7a11bc9501b">More...</a><br /></td></tr>
+<tr class="separator:ac8a378cc4347af6b3782d7a11bc9501b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Applies a special IC where we fill diagonally 1. </p>
+<div class="textblock"><p>Dirichlet boundary conditions, meaning values will be set to a constant. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4895b8b88320ea97063a7f05a0c4d101"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4895b8b88320ea97063a7f05a0c4d101">&#9670;&nbsp;</a></span>apply()</h2>
+<a id="ac8a378cc4347af6b3782d7a11bc9501b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8a378cc4347af6b3782d7a11bc9501b">&#9670;&nbsp;</a></span>apply()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -105,11 +102,21 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void HPC4WC::DiagonalInitialCondition::apply </td>
+          <td class="memname">static void HPC4WC::DirichletBoundaryConditions::apply </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;&#160;</td>
-          <td class="paramname"><em>field</em></td><td>)</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>value</em> = <code>0.</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -119,10 +126,11 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Applies this initial condition on the field. </p>
+<p>Apply dirichlet boundary conditions on a field. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">field</td><td>The field to apply the initial condition to. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">field</td><td>The field to apply the boundary conditions to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to use. </td></tr>
   </table>
   </dd>
 </dl>
@@ -130,7 +138,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="initial__condition_8h_source.html">initial_condition.h</a></li>
+<li><a class="el" href="boundary__condition_8h_source.html">boundary_condition.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
