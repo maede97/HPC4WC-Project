@@ -27,7 +27,7 @@ public:
      * @brief Applies this initial condition on the field.
      * @param[inout] field The field to apply the initial condition to.
      */
-    static void apply(Field& f);
+    static void apply(Field& field);
 };
 
 }  // namespace HPC4WC
