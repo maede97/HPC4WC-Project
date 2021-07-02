@@ -23,6 +23,16 @@ public:
      * @param[in] num_halo Number of halo points around the field.
      */
     Field(const_idx_t& ni, const_idx_t& nj, const_idx_t& nk, const_idx_t& num_halo);
+       
+    /**
+     * @brief Create a field with a given value.
+     * @param[in] ni Number of field nodes in the first direction
+     * @param[in] nj Number of field nodes in the second direction
+     * @param[in] nk Number of field nodes in the third direction
+     * @param[in] num_halo Number of halo points around the field.
+     * @param[in] value The value to set the field to.
+     */
+    Field(const_idx_t& ni, const_idx_t& nj, const_idx_t& nk, const_idx_t& num_halo, const double& value);
 
     Field(const Field&) = delete;
     Field() = delete;

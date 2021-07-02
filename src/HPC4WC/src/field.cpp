@@ -6,6 +6,11 @@ Field::Field(const_idx_t& ni, const_idx_t& nj, const_idx_t& nk, const_idx_t& num
     m_data.resize(nk, Eigen::MatrixXd::Zero(ni + 2 * num_halo, nj + 2 * num_halo));
 }
 
+Field::Field(const_idx_t& ni, const_idx_t& nj, const_idx_t& nk, const_idx_t& num_halo, const double& value)
+    : m_ni(ni), m_nj(nj), m_nk(nk), m_num_halo(num_halo) {
+    m_data.resize(nk, Eigen::MatrixXd::Constant(ni + 2 * num_halo, nj + 2 * num_halo, value));
+}
+
 double Field::operator()(const_idx_t& i, const_idx_t& j, const_idx_t& k) const {
     return m_data[k](i, j);
 }
