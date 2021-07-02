@@ -116,9 +116,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a185ab1eadd84b630abb8b236f6db5af1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1Field.html#a185ab1eadd84b630abb8b236f6db5af1">setFrom</a> (const <a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;f)</td></tr>
 <tr class="memdesc:a185ab1eadd84b630abb8b236f6db5af1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update a field from another field.  <a href="classHPC4WC_1_1Field.html#a185ab1eadd84b630abb8b236f6db5af1">More...</a><br /></td></tr>
 <tr class="separator:a185ab1eadd84b630abb8b236f6db5af1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3da80c4511eb70beef535eee101a7581"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1Field.html#a3da80c4511eb70beef535eee101a7581">setFrom</a> (const Eigen::MatrixXd &amp;ij_plane, <a class="el" href="classHPC4WC_1_1Field.html#a4e6e09f2fcca78e2a14121d1dbacb8a1">const_idx_t</a> &amp;k)</td></tr>
-<tr class="memdesc:a3da80c4511eb70beef535eee101a7581"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update a field at k level from a given plane.  <a href="classHPC4WC_1_1Field.html#a3da80c4511eb70beef535eee101a7581">More...</a><br /></td></tr>
-<tr class="separator:a3da80c4511eb70beef535eee101a7581"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd20489468e20f59f15d139c7458690d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1Field.html#acd20489468e20f59f15d139c7458690d">setFrom</a> (const Eigen::MatrixXd &amp;ij_plane_part, <a class="el" href="classHPC4WC_1_1Field.html#a4e6e09f2fcca78e2a14121d1dbacb8a1">const_idx_t</a> &amp;i, <a class="el" href="classHPC4WC_1_1Field.html#a4e6e09f2fcca78e2a14121d1dbacb8a1">const_idx_t</a> &amp;j, <a class="el" href="classHPC4WC_1_1Field.html#a4e6e09f2fcca78e2a14121d1dbacb8a1">const_idx_t</a> &amp;k)</td></tr>
 <tr class="memdesc:acd20489468e20f59f15d139c7458690d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update a field at k level from a given plane part.  <a href="classHPC4WC_1_1Field.html#acd20489468e20f59f15d139c7458690d">More...</a><br /></td></tr>
 <tr class="separator:acd20489468e20f59f15d139c7458690d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -335,7 +332,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get access to a field variable. </p>
-<p>Indexing: 0/0 --&gt; first point inside (NO HALO) -1/-1 --&gt; halo corner (potentially more negative) ni-1/nj-1 --&gt; last corner inside (NO HALO) ni/nj --&gt; halo corner (potentially more positive) </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>write about indexing </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>The first index </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">j</td><td>The second index </td></tr>
@@ -380,7 +378,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get reference access to a field variable. </p>
-<p>Indexing: 0/0 --&gt; first point inside (NO HALO) -1/-1 --&gt; halo corner (potentially more negative) ni-1/nj-1 --&gt; last corner inside (NO HALO) ni/nj --&gt; halo corner (potentially more positive) </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>write about indexing </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>The first index </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">j</td><td>The second index </td></tr>
@@ -393,7 +392,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a185ab1eadd84b630abb8b236f6db5af1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a185ab1eadd84b630abb8b236f6db5af1">&#9670;&nbsp;</a></span>setFrom() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a185ab1eadd84b630abb8b236f6db5af1">&#9670;&nbsp;</a></span>setFrom() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -421,56 +420,12 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Implement error. </dd></dl>
-
-</div>
-</div>
-<a id="a3da80c4511eb70beef535eee101a7581"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3da80c4511eb70beef535eee101a7581">&#9670;&nbsp;</a></span>setFrom() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void HPC4WC::Field::setFrom </td>
-          <td>(</td>
-          <td class="paramtype">const Eigen::MatrixXd &amp;&#160;</td>
-          <td class="paramname"><em>ij_plane</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classHPC4WC_1_1Field.html#a4e6e09f2fcca78e2a14121d1dbacb8a1">const_idx_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>k</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Update a field at k level from a given plane. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ij_plane</td><td>The other plane which is copied over. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">k</td><td>Where to put the other plane. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">Error</td><td>if the planes do not match. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Implement error. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Implement error. </dd></dl>
 
 </div>
 </div>
 <a id="acd20489468e20f59f15d139c7458690d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd20489468e20f59f15d139c7458690d">&#9670;&nbsp;</a></span>setFrom() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acd20489468e20f59f15d139c7458690d">&#9670;&nbsp;</a></span>setFrom() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -523,7 +478,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Implement error. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Implement error. </dd></dl>
 
 </div>
 </div>
@@ -645,7 +600,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 2 2021 11:40:20 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Jul 2 2021 12:52:01 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
