@@ -17,3 +17,15 @@ void HPC4WC::CubeInitialCondition::apply(Field& field) {
         }
     }
 }
+
+void HPC4WC::DiagonalInitialCondition::apply(Field& f) {
+    for (int i = 0; i < f.num_i(); i++) {
+        for (int j = 0; j < f.num_j(); j++) {
+            for (int k = 0; k < f.num_k(); k++) {
+                if ((i + j) % 4 == 0) {
+                    f(i, j, k) = 1.;
+                }
+            }
+        }
+    }
+}

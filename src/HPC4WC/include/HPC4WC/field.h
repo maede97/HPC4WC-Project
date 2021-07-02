@@ -32,6 +32,8 @@ public:
     double& operator()(const_idx_t& i, const_idx_t& j, const_idx_t& k);
 
     void setFrom(const Field&);
+    void setFrom(const Eigen::MatrixXd& ij_plane, const_idx_t& k);
+    void setFrom(const Eigen::MatrixXd& ij_plane_part, const_idx_t& i, const_idx_t& j, const_idx_t& k);
 
     const_idx_t num_i() const {
         return m_ni;

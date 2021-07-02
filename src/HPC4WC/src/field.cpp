@@ -20,4 +20,12 @@ void Field::setFrom(const Field& other) {
     }
 }
 
+void Field::setFrom(const Eigen::MatrixXd& ij_plane, const_idx_t& k) {
+    m_data[k].block(m_num_halo, m_num_halo, m_ni, m_nj) = ij_plane;
+}
+
+void Field::setFrom(const Eigen::MatrixXd& ij_plane_part, const_idx_t& i, const_idx_t& j, const_idx_t& k) {
+    m_data[k].block(m_num_halo + i, m_num_halo + j, ij_plane_part.rows(), ij_plane_part.cols()) = ij_plane_part;
+}
+
 }  // namespace HPC4WC
