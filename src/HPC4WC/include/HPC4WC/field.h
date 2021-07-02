@@ -32,11 +32,7 @@ public:
     /**
      * @brief Get access to a field variable.
      * 
-     * Indexing:
-     * 0/0 --> first point inside (NO HALO)
-     * -1/-1 --> halo corner (potentially more negative)
-     * ni-1/nj-1 --> last corner inside (NO HALO)
-     * ni/nj --> halo corner (potentially more positive)
+     * @todo write about indexing
      * @param[in] i The first index
      * @param[in] j The second index
      * @param[in] k The third index
@@ -47,11 +43,7 @@ public:
     /**
      * @brief Get reference access to a field variable.
      * 
-     * Indexing:
-     * 0/0 --> first point inside (NO HALO)
-     * -1/-1 --> halo corner (potentially more negative)
-     * ni-1/nj-1 --> last corner inside (NO HALO)
-     * ni/nj --> halo corner (potentially more positive)
+     * @todo write about indexing
      * @param[in] i The first index
      * @param[in] j The second index
      * @param[in] k The third index
@@ -66,15 +58,6 @@ public:
      * @todo Implement error.
      */
     void setFrom(const Field& f);
-
-    /**
-     * @brief Update a field at k level from a given plane.
-     * @param[in] ij_plane The other plane which is copied over.
-     * @param[in] k Where to put the other plane.
-     * @throws Error if the planes do not match.
-     * @todo Implement error.
-     */
-    void setFrom(const Eigen::MatrixXd& ij_plane, const_idx_t& k);
 
     /**
      * @brief Update a field at k level from a given plane part.
