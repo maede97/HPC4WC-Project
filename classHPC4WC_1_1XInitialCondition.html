@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ATWCS: HPC4WC::PeriodicBoundaryConditions Class Reference</title>
+<title>ATWCS: HPC4WC::XInitialCondition Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,32 +69,34 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespaceHPC4WC.html">HPC4WC</a></li><li class="navelem"><a class="el" href="classHPC4WC_1_1PeriodicBoundaryConditions.html">PeriodicBoundaryConditions</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceHPC4WC.html">HPC4WC</a></li><li class="navelem"><a class="el" href="classHPC4WC_1_1XInitialCondition.html">XInitialCondition</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="classHPC4WC_1_1PeriodicBoundaryConditions-members.html">List of all members</a>  </div>
+<a href="classHPC4WC_1_1XInitialCondition-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">HPC4WC::PeriodicBoundaryConditions Class Reference</div>  </div>
+<div class="title">HPC4WC::XInitialCondition Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="boundary__condition_8h_source.html">boundary_condition.h</a>&gt;</code></p>
+<p>Applies a special IC where we fill a X in the middle of the field with ones.  
+ <a href="classHPC4WC_1_1XInitialCondition.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="initial__condition_8h_source.html">initial_condition.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a8f3c9ee557f201ab9e70909e19b84a9d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1PeriodicBoundaryConditions.html#a8f3c9ee557f201ab9e70909e19b84a9d">apply</a> (<a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;field)</td></tr>
-<tr class="memdesc:a8f3c9ee557f201ab9e70909e19b84a9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply periodic boundary conditions on a field.  <a href="classHPC4WC_1_1PeriodicBoundaryConditions.html#a8f3c9ee557f201ab9e70909e19b84a9d">More...</a><br /></td></tr>
-<tr class="separator:a8f3c9ee557f201ab9e70909e19b84a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a138ddbb8e7d5f739d964bb9120840313"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1XInitialCondition.html#a138ddbb8e7d5f739d964bb9120840313">apply</a> (<a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;field, <a class="el" href="classHPC4WC_1_1Field.html#a4e6e09f2fcca78e2a14121d1dbacb8a1">Field::const_idx_t</a> &amp;x_width=1)</td></tr>
+<tr class="memdesc:a138ddbb8e7d5f739d964bb9120840313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies this initial condition on the field.  <a href="classHPC4WC_1_1XInitialCondition.html#a138ddbb8e7d5f739d964bb9120840313">More...</a><br /></td></tr>
+<tr class="separator:a138ddbb8e7d5f739d964bb9120840313"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Periodic boundary conditions, meaning values will be copied over. </p><dl class="section attention"><dt>Attention</dt><dd>Works only on i and j indices. </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Customize where to apply the boundary conditions. </dd></dl>
+<div class="textblock"><p>Applies a special IC where we fill a X in the middle of the field with ones. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8f3c9ee557f201ab9e70909e19b84a9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f3c9ee557f201ab9e70909e19b84a9d">&#9670;&nbsp;</a></span>apply()</h2>
+<a id="a138ddbb8e7d5f739d964bb9120840313"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a138ddbb8e7d5f739d964bb9120840313">&#9670;&nbsp;</a></span>apply()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -103,11 +105,21 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void HPC4WC::PeriodicBoundaryConditions::apply </td>
+          <td class="memname">static void HPC4WC::XInitialCondition::apply </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;&#160;</td>
-          <td class="paramname"><em>field</em></td><td>)</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classHPC4WC_1_1Field.html#a4e6e09f2fcca78e2a14121d1dbacb8a1">Field::const_idx_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>x_width</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -117,10 +129,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Apply periodic boundary conditions on a field. </p>
+<p>Applies this initial condition on the field. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">field</td><td>The field to apply the boundary conditions to. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">field</td><td>The field to apply the initial condition to. </td></tr>
   </table>
   </dd>
 </dl>
@@ -128,7 +140,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="boundary__condition_8h_source.html">boundary_condition.h</a></li>
+<li><a class="el" href="initial__condition_8h_source.html">initial_condition.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
