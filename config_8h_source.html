@@ -79,29 +79,29 @@ $(function() {
 <div class="contents">
 <a href="config_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="config_8h.html#af2221a62806956be0b7a4ae019d91788">    3</a></span>&#160;<span class="preprocessor">#define USE_OPENMP_ON_K</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="config_8h.html#a30f7220803c3cc3210e5c041c3cd314e">    5</a></span>&#160;<span class="preprocessor">#define BLOCK_SIZE_I 15</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="config_8h.html#a843718de358c282adaf3778f06af3388">    6</a></span>&#160;<span class="preprocessor">#define BLOCK_SIZE_J 10</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="config_8h.html#a8d38658e0a2381ab06e0dc3ca23af609">    8</a></span>&#160;<span class="preprocessor">#define BLOCK_I</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="config_8h.html#a30086adb3498e1ff8e137082032bdb98">    9</a></span>&#160;<span class="preprocessor">#define BLOCK_J</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// No follow helpers for the diffusion.cpp</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#if !defined(BLOCK_I) &amp;&amp; !defined(BLOCK_J)</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define BLOCK_NONE</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#if defined(BLOCK_I) &amp;&amp; defined(BLOCK_J)</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="config_8h.html#aa1cbf275ae34484115755a77f58c203f">   16</a></span>&#160;<span class="preprocessor">#define BLOCK_I_AND_J</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// undefine block_i and block_j to make cpp file easier (no if/else required)</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#undef BLOCK_I</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#undef BLOCK_J</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">// End helpers for diffusion.cpp</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="config_8h.html#af2221a62806956be0b7a4ae019d91788">   10</a></span>&#160;<span class="preprocessor">#define USE_OPENMP_ON_K</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="config_8h.html#a30f7220803c3cc3210e5c041c3cd314e">   12</a></span>&#160;<span class="preprocessor">#define BLOCK_SIZE_I 15</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="config_8h.html#a843718de358c282adaf3778f06af3388">   13</a></span>&#160;<span class="preprocessor">#define BLOCK_SIZE_J 10</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="config_8h.html#a8d38658e0a2381ab06e0dc3ca23af609">   15</a></span>&#160;<span class="preprocessor">#define BLOCK_I</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="config_8h.html#a30086adb3498e1ff8e137082032bdb98">   16</a></span>&#160;<span class="preprocessor">#define BLOCK_J</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">// No follow helpers for the diffusion.cpp</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#if !defined(BLOCK_I) &amp;&amp; !defined(BLOCK_J)</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define BLOCK_NONE</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#if defined(BLOCK_I) &amp;&amp; defined(BLOCK_J)</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="config_8h.html#aa1cbf275ae34484115755a77f58c203f">   23</a></span>&#160;<span class="preprocessor">#define BLOCK_I_AND_J</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// undefine block_i and block_j to make cpp file easier (no if/else required)</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#undef BLOCK_I</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#undef BLOCK_J</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">// End helpers for diffusion.cpp</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 2 2021 08:28:02 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Jul 2 2021 08:47:32 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
