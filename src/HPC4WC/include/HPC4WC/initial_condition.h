@@ -30,4 +30,16 @@ public:
     static void apply(Field& field);
 };
 
+/**
+ * @brief Applies a special IC where we fill a X in the middle of the field with ones.
+ */
+class XInitialCondition {
+public:
+    /**
+     * @brief Applies this initial condition on the field.
+     * @param[inout] field The field to apply the initial condition to.
+     */
+    static void apply(Field& field, Field::const_idx_t& x_width=1);
+};
+
 }  // namespace HPC4WC
