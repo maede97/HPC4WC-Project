@@ -25,10 +25,12 @@ int main(int argc, char* argv[]) {
     }
 
     p.scatter();
+    std::ofstream fs("rank_" + std::to_string(p.rank()) + ".txt");
+    IO::write(fs, *f.get(), 32);
 
     auto timer = Timer();
 
-    for (int t = 0; t < 10; t++) {
+    for (int t = 0; t < 0; t++) {
         p.haloExchange();
         PeriodicBoundaryConditions::apply(*f.get());
         Diffusion::apply(*f.get(), 1. / 32.);
