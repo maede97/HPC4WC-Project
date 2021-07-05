@@ -5,6 +5,7 @@
 #include <iostream>
 
 // TODO: CHECK MPI ERRORS
+// TODO: potentially replace Recv/Send with non-blocking (for scatter/gather)
 
 namespace HPC4WC {
 
@@ -13,14 +14,17 @@ class Partitioner {
     using const_idx_t = Field::const_idx_t;
 public:
     Partitioner(const_idx_t& ni, const_idx_t& nj, const_idx_t& nk, const_idx_t& num_halo);
+
     static void init(int argc, char* argv[]);
     static void finalize();
 
     FieldSPtr getField();
     FieldSPtr getGlobalField();
+
     void scatter();
     void gather();
-    void haloExchange();
+
+    void applyPeriodicBoundaryConditions();
 
     const int rank() const;
 
