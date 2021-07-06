@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['timeelapsed_35',['timeElapsed',['../classHPC4WC_1_1Timer.html#aa857269420901ee0c6439bda2e1f342b',1,'HPC4WC::Timer']]],
-  ['timer_36',['Timer',['../classHPC4WC_1_1Timer.html',1,'HPC4WC::Timer'],['../classHPC4WC_1_1Timer.html#ad45ee1f5cd2bee2440592b2ea6d5c528',1,'HPC4WC::Timer::Timer()']]],
-  ['timer_2eh_37',['timer.h',['../timer_8h.html',1,'']]],
-  ['timeval_5fsubtract_38',['timeval_subtract',['../classHPC4WC_1_1Timer.html#a8adcce3b09734fe426ea212a72549d55',1,'HPC4WC::Timer']]],
-  ['todo_20list_39',['Todo List',['../todo.html',1,'']]]
+  ['scatter_44',['scatter',['../classHPC4WC_1_1Partitioner.html#ae614e8416a2c39e78cf702660954fa9e',1,'HPC4WC::Partitioner']]],
+  ['setfrom_45',['setFrom',['../classHPC4WC_1_1Field.html#a185ab1eadd84b630abb8b236f6db5af1',1,'HPC4WC::Field::setFrom(const Field &amp;f)'],['../classHPC4WC_1_1Field.html#acd20489468e20f59f15d139c7458690d',1,'HPC4WC::Field::setFrom(const Eigen::MatrixXd &amp;ij_plane_part, const_idx_t &amp;i, const_idx_t &amp;j, const_idx_t &amp;k)']]]
 ];

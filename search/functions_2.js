@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['num_5fhalo_66',['num_halo',['../classHPC4WC_1_1Field.html#a4c80fa6ea11ef351c97440cc94bef598',1,'HPC4WC::Field']]],
-  ['num_5fi_67',['num_i',['../classHPC4WC_1_1Field.html#a2cc02810872778f579a5c8d56f3b4991',1,'HPC4WC::Field']]],
-  ['num_5fj_68',['num_j',['../classHPC4WC_1_1Field.html#a72b04bdff891ed7ff502d7cc2ac47359',1,'HPC4WC::Field']]],
-  ['num_5fk_69',['num_k',['../classHPC4WC_1_1Field.html#acc70524af3b0f00076aac315f682f9f5',1,'HPC4WC::Field']]]
+  ['gather_81',['gather',['../classHPC4WC_1_1Partitioner.html#ac12bdc84bd5214a53fe5e6d7f40d29e3',1,'HPC4WC::Partitioner']]],
+  ['getfield_82',['getField',['../classHPC4WC_1_1Partitioner.html#aa726b495100914b7a4d6dd51cbc53279',1,'HPC4WC::Partitioner']]],
+  ['getglobalfield_83',['getGlobalField',['../classHPC4WC_1_1Partitioner.html#aa5084bc49f7a88bf0d0063be2c0befde',1,'HPC4WC::Partitioner']]]
 ];

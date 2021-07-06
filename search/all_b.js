@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['setfrom_34',['setFrom',['../classHPC4WC_1_1Field.html#a185ab1eadd84b630abb8b236f6db5af1',1,'HPC4WC::Field::setFrom(const Field &amp;f)'],['../classHPC4WC_1_1Field.html#acd20489468e20f59f15d139c7458690d',1,'HPC4WC::Field::setFrom(const Eigen::MatrixXd &amp;ij_plane_part, const_idx_t &amp;i, const_idx_t &amp;j, const_idx_t &amp;k)']]]
+  ['rank_41',['rank',['../classHPC4WC_1_1Partitioner.html#aa5cb3e1e229f569f701d971752544f3e',1,'HPC4WC::Partitioner']]],
+  ['readme_2emd_42',['README.md',['../README_8md.html',1,'']]],
+  ['restart_43',['restart',['../classHPC4WC_1_1Timer.html#a9987344bebd20e6a92f17d3a57e7b9d2',1,'HPC4WC::Timer']]]
 ];

@@ -86,6 +86,13 @@ $(function() {
 <dd><a class="anchor" id="_todo000005"></a>Implement error.  </dd>
 <dt>Member <a class="el" href="classHPC4WC_1_1Field.html#acd20489468e20f59f15d139c7458690d">HPC4WC::Field::setFrom</a>  (const Eigen::MatrixXd &amp;ij_plane_part, const_idx_t &amp;i, const_idx_t &amp;j, const_idx_t &amp;k)</dt>
 <dd><a class="anchor" id="_todo000006"></a>Implement error.  </dd>
+<dt>Class <a class="el" href="classHPC4WC_1_1Partitioner.html">HPC4WC::Partitioner</a>  </dt>
+<dd><p class="startdd"><a class="anchor" id="_todo000007"></a>Check all MPI errors </p>
+<p class="interdd">potentially replace Recv/Send with non-blocking (for scatter/gather) </p>
+<p class="enddd">Merge multiple calls (for all k) into a single MPI send / receive.  </p>
+</dd>
+<dt>Member <a class="el" href="classHPC4WC_1_1Partitioner.html#ac6ca3c885b0c8a9857f1c585dfa169ba">HPC4WC::Partitioner::applyPeriodicBoundaryConditions</a>  ()</dt>
+<dd><a class="anchor" id="_todo000008"></a>If only one rank, fall back to BoundaryCondition::apply  </dd>
 <dt>Member <a class="el" href="config_8h.html#af2221a62806956be0b7a4ae019d91788">USE_OPENMP_ON_K</a>  </dt>
 <dd><a class="anchor" id="_todo000001"></a>Write this note.</dd>
 </dl>
@@ -93,7 +100,7 @@ $(function() {
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 2 2021 13:28:09 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jul 6 2021 07:04:30 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['wait_41',['wait',['../classHPC4WC_1_1Timer.html#a703443ae39250829d4be6129bed274f0',1,'HPC4WC::Timer']]],
-  ['write_42',['write',['../classHPC4WC_1_1IO.html#afb836a2776b4a4ad0bfed175eeede7e6',1,'HPC4WC::IO::write(std::ostream &amp;stream, const Field &amp;field, Field::const_idx_t &amp;k)'],['../classHPC4WC_1_1IO.html#a8550f2931d5f373e5b677d8daf552970',1,'HPC4WC::IO::write(std::ostream &amp;stream, const Field &amp;field)']]]
+  ['use_5fopenmp_5fon_5fk_51',['USE_OPENMP_ON_K',['../config_8h.html#af2221a62806956be0b7a4ae019d91788',1,'config.h']]]
 ];

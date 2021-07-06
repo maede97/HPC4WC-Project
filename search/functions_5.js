@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['setfrom_72',['setFrom',['../classHPC4WC_1_1Field.html#a185ab1eadd84b630abb8b236f6db5af1',1,'HPC4WC::Field::setFrom(const Field &amp;f)'],['../classHPC4WC_1_1Field.html#acd20489468e20f59f15d139c7458690d',1,'HPC4WC::Field::setFrom(const Eigen::MatrixXd &amp;ij_plane_part, const_idx_t &amp;i, const_idx_t &amp;j, const_idx_t &amp;k)']]]
+  ['operator_28_29_89',['operator()',['../classHPC4WC_1_1Field.html#a31803848f2856dd0628802fb434b2de3',1,'HPC4WC::Field::operator()(const_idx_t &amp;i, const_idx_t &amp;j, const_idx_t &amp;k) const'],['../classHPC4WC_1_1Field.html#a09f0598cbf15bc1ff9e0126e49c54b8e',1,'HPC4WC::Field::operator()(const_idx_t &amp;i, const_idx_t &amp;j, const_idx_t &amp;k)']]]
 ];
