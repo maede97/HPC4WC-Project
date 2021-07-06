@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
     }
 
     double time = timer.timeElapsed();
-    std::cout << "Rank: " << p.rank() << ", Time elapsed : " << time << std::endl;
+    std::cout << "Rank: " << p.rank() << ", Time elapsed: " << time << std::endl;
 
     p.gather();
 
