@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-#ifndef DISABLE_PARTITIONER {
+#ifndef DISABLE_PARTITIONER
 
 #include <mpi.h>
 
