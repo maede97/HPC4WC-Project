@@ -18,3 +18,23 @@ FetchContent_Declare(
 fetch(eigen)
 add_library(eigen INTERFACE)
 target_include_directories(eigen INTERFACE ${eigen_SOURCE_DIR})
+
+FetchContent_Declare(
+    googletest
+    URL                 https://github.com/google/googletest/archive/refs/tags/release-1.11.0.zip
+    URL_HASH            MD5=52943a59cefce0ae0491d4d2412c120b
+)
+fetch(googletest)
+# For Windows: Prevent overriding the parent project's compiler/linker settings
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR})
+
+# Set folder for visual studio
+if(WIN32)
+    set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+    set_target_properties(gtest PROPERTIES FOLDER Ext)
+    set_target_properties(gtest_main PROPERTIES FOLDER Ext)
+    set_target_properties(gmock PROPERTIES FOLDER Ext)
+    set_target_properties(gmock_main PROPERTIES FOLDER Ext)
+    set_target_properties(eigen PROPERTIES FOLDER Ext)
+endif(WIN32)
