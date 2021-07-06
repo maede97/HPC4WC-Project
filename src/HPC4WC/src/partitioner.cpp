@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#ifndef DISABLE_PARTITIONER
+
 namespace HPC4WC {
 
 Partitioner::Partitioner(Field::const_idx_t& ni, Field::const_idx_t& nj, Field::const_idx_t& nk, Field::const_idx_t& num_halo)
@@ -303,3 +305,5 @@ std::pair<Field::idx_t, Field::idx_t> Partitioner::getLocalFieldSize(int rank) {
 }
 
 }  // namespace HPC4WC
+
+#endif /* DISABLE_PARTITIONER */

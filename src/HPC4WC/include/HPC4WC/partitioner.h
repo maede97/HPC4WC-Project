@@ -1,8 +1,11 @@
 #pragma once
 #include <HPC4WC/field.h>
-#include <mpi.h>
 
 #include <iostream>
+
+#ifndef DISABLE_PARTITIONER {
+
+#include <mpi.h>
 
 namespace HPC4WC {
 
@@ -13,6 +16,7 @@ namespace HPC4WC {
  * 
  * @todo Check all MPI errors
  * @todo potentially replace Recv/Send with non-blocking (for scatter/gather)
+ * @todo Merge multiple calls (for all k) into a single MPI send / receive.
  */
 class Partitioner {
 public:
@@ -81,6 +85,7 @@ public:
      * 
      * Applies periodic boundary conditions (halo exchange) in both i and j direction.
      * See PeriodicBoundaryConditions::apply with PERIODICITY::BOTH.
+     * @todo If only one rank, fall back to BoundaryCondition::apply
      */
     void applyPeriodicBoundaryConditions();
 
@@ -112,3 +117,5 @@ private:
 };
 
 }  // namespace HPC4WC
+
+#endif /* DISABLE_PARTITIONER */

@@ -14,13 +14,24 @@ file(
     "${CMAKE_CURRENT_SOURCE_DIR}/include/HPC4WC/*.h" #
 )
 
-find_package(OpenMP REQUIRED)
-find_package(MPI REQUIRED)
-
 add_library(${PROJECT_NAME} STATIC ${SOURCE} ${HEADER})
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(${PROJECT_NAME} 
-    PUBLIC OpenMP::OpenMP_CXX
-    PUBLIC MPI::MPI_CXX
+
+if(${OpenMP_FOUND})
+    target_link_libraries(${PROJECT_NAME} PUBLIC OpenMP::OpenMP_CXX)
+    message("Found OpenMP.")
+else(${OpenMP_FOUND})
+    message("OpenMP not found.")
+endif(${OpenMP_FOUND})
+
+if(${MPI_FOUND})
+    target_link_libraries(${PROJECT_NAME} PUBLIC MPI::MPI_CXX)
+    message("Found MPI.")
+else(${MPI_FOUND})
+    message("MPI not found, disabling partitioner.")
+    target_compile_definitions(${PROJECT_NAME} PUBLIC -DDISABLE_PARTITIONER)
+endif(${MPI_FOUND})
+
+target_link_libraries(${PROJECT_NAME}
     PUBLIC eigen
 )
