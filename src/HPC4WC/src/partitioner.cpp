@@ -67,7 +67,7 @@ void Partitioner::scatter() {
                     }
                 }
                 // send buf with its values to each rank
-                MPI_Send(buf.data(), buf.size(), MPI_DOUBLE, rank, k, m_comm);
+                MPI_Send(buf.data(), (int)buf.size(), MPI_DOUBLE, rank, k, m_comm);
             }
         }
 
@@ -98,7 +98,7 @@ void Partitioner::scatter() {
 
         for (Field::idx_t k = 0; k < m_field->num_k(); k++) {
             Field::idx_t idx = 0;
-            MPI_Recv(buf.data(), buf.size(), MPI_DOUBLE, 0, k, m_comm, MPI_STATUS_IGNORE);
+            MPI_Recv(buf.data(), (int)buf.size(), MPI_DOUBLE, 0, k, m_comm, MPI_STATUS_IGNORE);
             // unpack buf into k plane
             for (Field::idx_t i = 0; i < localSizes.first; ++i) {
                 for (Field::idx_t j = 0; j < localSizes.second; ++j) {
@@ -127,7 +127,7 @@ void Partitioner::gather() {
                 Field::idx_t start_row = rank_coords[0] * interior_ni;
                 Field::idx_t start_col = rank_coords[1] * interior_nj;
 
-                MPI_Recv(buf.data(), buf.size(), MPI_DOUBLE, rank, k, m_comm, MPI_STATUS_IGNORE);
+                MPI_Recv(buf.data(), (int)buf.size(), MPI_DOUBLE, rank, k, m_comm, MPI_STATUS_IGNORE);
 
                 Field::idx_t idx = 0;
                 for (Field::idx_t i = start_row; i < start_row + localSizes.first; ++i) {
@@ -172,7 +172,7 @@ void Partitioner::gather() {
                 }
             }
 
-            MPI_Send(buf.data(), buf.size(), MPI_DOUBLE, 0, k, m_comm);
+            MPI_Send(buf.data(), (int)buf.size(), MPI_DOUBLE, 0, k, m_comm);
         }
     }
 }
@@ -204,7 +204,7 @@ void Partitioner::applyPeriodicBoundaryConditions() {
 
         // post Recv.
         MPI_Request request_top;
-        MPI_Irecv(rcv_buf_tb.data(), rcv_buf_tb.size(), MPI_DOUBLE, top, 2, m_comm, &request_top);
+        MPI_Irecv(rcv_buf_tb.data(), (int)rcv_buf_tb.size(), MPI_DOUBLE, top, 2, m_comm, &request_top);
 
         // fill buffer
         Field::idx_t idx = 0;
@@ -215,7 +215,7 @@ void Partitioner::applyPeriodicBoundaryConditions() {
         }
 
         // send buffer
-        MPI_Send(snd_buf_tb.data(), snd_buf_tb.size(), MPI_DOUBLE, bottom, 2, m_comm);
+        MPI_Send(snd_buf_tb.data(), (int)snd_buf_tb.size(), MPI_DOUBLE, bottom, 2, m_comm);
 
         // unack rcv_buf_tb
         MPI_Wait(&request_top, MPI_STATUS_IGNORE);
@@ -229,7 +229,7 @@ void Partitioner::applyPeriodicBoundaryConditions() {
         // bottom halo --> recv from bottom, send to top
         // post recv.
         MPI_Request request_bottom;
-        MPI_Irecv(rcv_buf_tb.data(), rcv_buf_tb.size(), MPI_DOUBLE, bottom, 1, m_comm, &request_bottom);
+        MPI_Irecv(rcv_buf_tb.data(), (int)rcv_buf_tb.size(), MPI_DOUBLE, bottom, 1, m_comm, &request_bottom);
         // fill buffer
         idx = 0;
         for (Field::idx_t i = 0; i < m_num_halo; i++) {
@@ -237,7 +237,7 @@ void Partitioner::applyPeriodicBoundaryConditions() {
                 snd_buf_tb[idx++] = m_field->operator()(i + m_num_halo, j + m_num_halo, k);
             }
         }
-        MPI_Send(snd_buf_tb.data(), snd_buf_tb.size(), MPI_DOUBLE, top, 1, m_comm);
+        MPI_Send(snd_buf_tb.data(), (int)snd_buf_tb.size(), MPI_DOUBLE, top, 1, m_comm);
         MPI_Wait(&request_bottom, MPI_STATUS_IGNORE);
         idx = 0;
         for (Field::idx_t i = 0; i < m_num_halo; i++) {
@@ -248,14 +248,14 @@ void Partitioner::applyPeriodicBoundaryConditions() {
 
         // left halo --> recv from left, send to right
         MPI_Request request_left;
-        MPI_Irecv(rcv_buf_lr.data(), rcv_buf_lr.size(), MPI_DOUBLE, left, 4, m_comm, &request_left);
+        MPI_Irecv(rcv_buf_lr.data(), (int)rcv_buf_lr.size(), MPI_DOUBLE, left, 4, m_comm, &request_left);
         idx = 0;
         for (Field::idx_t i = 0; i < f_ni + 2 * m_num_halo; i++) {
             for (Field::idx_t j = 0; j < m_num_halo; j++) {
                 snd_buf_lr[idx++] = m_field->operator()(i, j + f_nj, k);
             }
         }
-        MPI_Send(snd_buf_lr.data(), snd_buf_lr.size(), MPI_DOUBLE, right, 4, m_comm);
+        MPI_Send(snd_buf_lr.data(), (int)snd_buf_lr.size(), MPI_DOUBLE, right, 4, m_comm);
         MPI_Wait(&request_left, MPI_STATUS_IGNORE);
         idx = 0;
         for (Field::idx_t i = 0; i < f_ni + 2 * m_num_halo; i++) {
@@ -266,14 +266,14 @@ void Partitioner::applyPeriodicBoundaryConditions() {
 
         // right halo --> recv from right, send to left
         MPI_Request request_right;
-        MPI_Irecv(rcv_buf_lr.data(), rcv_buf_lr.size(), MPI_DOUBLE, right, 3, m_comm, &request_right);
+        MPI_Irecv(rcv_buf_lr.data(), (int)rcv_buf_lr.size(), MPI_DOUBLE, right, 3, m_comm, &request_right);
         idx = 0;
         for (Field::idx_t i = 0; i < f_ni + 2 * m_num_halo; i++) {
             for (Field::idx_t j = 0; j < m_num_halo; j++) {
                 snd_buf_lr[idx++] = m_field->operator()(i, j + m_num_halo, k);
             }
         }
-        MPI_Send(snd_buf_lr.data(), snd_buf_lr.size(), MPI_DOUBLE, left, 3, m_comm);
+        MPI_Send(snd_buf_lr.data(), (int)snd_buf_lr.size(), MPI_DOUBLE, left, 3, m_comm);
         MPI_Wait(&request_right, MPI_STATUS_IGNORE);
         idx = 0;
         for (Field::idx_t i = 0; i < f_ni + 2 * m_num_halo; i++) {
