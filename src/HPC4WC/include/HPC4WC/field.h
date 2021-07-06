@@ -47,7 +47,6 @@ public:
     /**
      * @brief Get access to a field variable.
      * 
-     * @todo write about indexing
      * @param[in] i The first index
      * @param[in] j The second index
      * @param[in] k The third index
@@ -59,7 +58,6 @@ public:
     /**
      * @brief Get reference access to a field variable.
      * 
-     * @todo write about indexing
      * @param[in] i The first index
      * @param[in] j The second index
      * @param[in] k The third index
