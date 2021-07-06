@@ -5,11 +5,17 @@
 namespace HPC4WC {
 
 Field::Field(const_idx_t& ni, const_idx_t& nj, const_idx_t& nk, const_idx_t& num_halo) : m_ni(ni), m_nj(nj), m_nk(nk), m_num_halo(num_halo) {
+    if (nk <= 0 || ni <= 0 || nj <= 0 || num_halo < 0) {
+        throw std::logic_error("Field(ni, nj, nk, num_halo): some indices are negative or zero.");
+    }
     m_data.resize(nk, Eigen::MatrixXd::Zero(ni + 2 * num_halo, nj + 2 * num_halo));
 }
 
 Field::Field(const_idx_t& ni, const_idx_t& nj, const_idx_t& nk, const_idx_t& num_halo, const double& value)
     : m_ni(ni), m_nj(nj), m_nk(nk), m_num_halo(num_halo) {
+    if (nk <= 0 || ni <= 0 || nj <= 0 || num_halo < 0) {
+        throw std::logic_error("Field(ni, nj, nk, num_halo, value): some indices are negative or zero.");
+    }
     m_data.resize(nk, Eigen::MatrixXd::Constant(ni + 2 * num_halo, nj + 2 * num_halo, value));
 }
 
@@ -36,6 +42,9 @@ void Field::setFrom(const Field& other) {
 }
 
 void Field::setFrom(const Eigen::MatrixXd& ij_plane_part, const_idx_t& i, const_idx_t& j, const_idx_t& k) {
+    if (k < 0 || k >= m_data.size() || i < 0 || i + ij_plane_part.rows() >= m_data[k].rows() || j < 0 || j + ij_plane_part.cols() >= m_data[k].cols()) {
+        throw std::out_of_range("Field::setFrom(ij_plane_part, i, j, k): Out of bounds.");
+    }
     m_data[k].block(i, j, ij_plane_part.rows(), ij_plane_part.cols()) = ij_plane_part;
 }
 

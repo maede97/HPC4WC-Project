@@ -7,6 +7,11 @@ TEST(Field, Constructor) {
     Field f_constant(2, 2, 2, 2, 3.);  // constant 3
     Field f2(2, 2, 2, 2);
     Field f_large(1000, 1000, 100, 2);  // large field
+
+    EXPECT_THROW(Field f_err(-1, 1, 1, 1), std::logic_error);
+    EXPECT_THROW(Field f_err2(1, 0, 1, 1), std::logic_error);
+    EXPECT_THROW(Field f_err3(1, 1, 0, 1), std::logic_error);
+    EXPECT_THROW(Field f_err4(1, 1, 1, -1), std::logic_error);
 }
 
 TEST(Field, AccessGood) {
@@ -17,7 +22,7 @@ TEST(Field, AccessGood) {
 
     f(1, 1, 0) = 4.;
     EXPECT_DOUBLE_EQ(f(1, 1, 1), 3.);
-    EXPECT_FLOAT_EQ(f(1, 1, 0), 4.);
+    EXPECT_DOUBLE_EQ(f(1, 1, 0), 4.);
 
     EXPECT_NO_THROW(f(5, 0, 0));
     EXPECT_NO_THROW(f(0, 5, 0));
@@ -35,7 +40,7 @@ TEST(Field, AccessBad) {
     EXPECT_THROW(f(0, 0, 2), std::out_of_range);
 }
 
-TEST(Field, SetFrom) {
+TEST(Field, SetFromField) {
     using namespace HPC4WC;
     Field f1(10, 10, 2, 2, 1.);
     Field f2(10, 10, 2, 2, 3.);
@@ -53,4 +58,17 @@ TEST(Field, SetFrom) {
     EXPECT_THROW(f1.setFrom(f4), std::logic_error);
     EXPECT_THROW(f1.setFrom(f5), std::logic_error);
     EXPECT_THROW(f1.setFrom(f6), std::logic_error);
+}
+
+TEST(Field, SetFromFieldPart) {
+    using namespace HPC4WC;
+    Field f1(10, 10, 2, 2, 1.);
+    Eigen::MatrixXd ij_part = Eigen::MatrixXd::Constant(5, 5, 4.);
+
+    EXPECT_NO_THROW(f1.setFrom(ij_part, 0, 0, 0));
+    EXPECT_NO_THROW(f1.setFrom(ij_part, 8, 0, 0));
+    EXPECT_THROW(f1.setFrom(ij_part, 9, 0, 0), std::out_of_range);
+    EXPECT_THROW(f1.setFrom(ij_part, 0, 9, 0), std::out_of_range);
+    EXPECT_THROW(f1.setFrom(ij_part, 0, 0, -1), std::out_of_range);
+    EXPECT_THROW(f1.setFrom(ij_part, 0, 0, 2), std::out_of_range);
 }

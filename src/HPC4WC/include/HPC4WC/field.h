@@ -24,6 +24,7 @@ public:
      * @param[in] nj Number of field nodes in the second direction
      * @param[in] nk Number of field nodes in the third direction
      * @param[in] num_halo Number of halo points around the field.
+     * @throws std::logic_error If an index is negative (num_halo) or smaller or equal to zero (ni, nj, nk).
      */
     Field(const_idx_t& ni, const_idx_t& nj, const_idx_t& nk, const_idx_t& num_halo);
        
@@ -34,6 +35,7 @@ public:
      * @param[in] nk Number of field nodes in the third direction
      * @param[in] num_halo Number of halo points around the field.
      * @param[in] value The value to set the field to.
+     * @throws std::logic_error If an index is negative (num_halo) or smaller or equal to zero (ni, nj, nk).
      */
     Field(const_idx_t& ni, const_idx_t& nj, const_idx_t& nk, const_idx_t& num_halo, const double& value);
 
@@ -50,6 +52,7 @@ public:
      * @param[in] j The second index
      * @param[in] k The third index
      * @result The value at the given location.
+     * @throws std::out_of_bounds if any index is out of bounds.
      */
     double operator()(const_idx_t& i, const_idx_t& j, const_idx_t& k) const;
 
@@ -61,6 +64,7 @@ public:
      * @param[in] j The second index
      * @param[in] k The third index
      * @result The value at the given location.
+     * @throws std::out_of_bounds if any index is out of bounds.
      */
     double& operator()(const_idx_t& i, const_idx_t& j, const_idx_t& k);
 
@@ -68,7 +72,7 @@ public:
      * @brief Update a field from another field.
      * @param[in] f The other field which is copied over.
      * @throws Error if the fields do not match.
-     * @todo Implement error.
+     * @throws std::logic_error if the two fields have non-matching dimensions.
      */
     void setFrom(const Field& f);
 
@@ -78,8 +82,7 @@ public:
      * @param[in] i The first index to put the part in this field.
      * @param[in] j The second index to put the part in this field.
      * @param[in] k Where to put the other plane.
-     * @throws Error if the planes do not match.
-     * @todo Implement error.
+     * @throws std::out_of_range if the indices are wrong (out of bounds access)
      */
     void setFrom(const Eigen::MatrixXd& ij_plane_part, const_idx_t& i, const_idx_t& j, const_idx_t& k);
 
