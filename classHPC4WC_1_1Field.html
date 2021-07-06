@@ -221,6 +221,12 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td>If an index is negative (num_halo) or smaller or equal to zero (ni, nj, nk). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -276,6 +282,12 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">nk</td><td>Number of field nodes in the third direction </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">num_halo</td><td>Number of halo points around the field. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set the field to. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td>If an index is negative (num_halo) or smaller or equal to zero (ni, nj, nk). </td></tr>
   </table>
   </dd>
 </dl>
@@ -402,6 +414,12 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The value at the given location. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_bounds</td><td>if any index is out of bounds. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -448,6 +466,12 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The value at the given location. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_bounds</td><td>if any index is out of bounds. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -477,10 +501,10 @@ Public Member Functions</h2></td></tr>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">Error</td><td>if the fields do not match. </td></tr>
+    <tr><td class="paramname">std::logic_error</td><td>if the two fields have non-matching dimensions. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Implement error. </dd></dl>
 
 </div>
 </div>
@@ -534,11 +558,10 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">Error</td><td>if the planes do not match. </td></tr>
+    <tr><td class="paramname">std::out_of_range</td><td>if the indices are wrong (out of bounds access) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Implement error. </dd></dl>
 
 </div>
 </div>
@@ -660,7 +683,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 6 2021 07:36:43 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jul 6 2021 09:11:25 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
