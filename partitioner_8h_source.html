@@ -94,7 +94,7 @@ $(function() {
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classHPC4WC_1_1Partitioner.html#a44c1d093f2d600a258c8339a4b2fbed1">   37</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classHPC4WC_1_1Partitioner.html#a44c1d093f2d600a258c8339a4b2fbed1">finalize</a>();</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classHPC4WC_1_1Partitioner.html#a716e6286ed8d70c28a47d48cd78b53d6">   50</a></span>&#160;    <a class="code" href="classHPC4WC_1_1Partitioner.html#a716e6286ed8d70c28a47d48cd78b53d6">Partitioner</a>(<a class="code" href="classHPC4WC_1_1Field.html#a4e6e09f2fcca78e2a14121d1dbacb8a1">Field::const_idx_t</a>&amp; ni, <a class="code" href="classHPC4WC_1_1Field.html#a4e6e09f2fcca78e2a14121d1dbacb8a1">Field::const_idx_t</a>&amp; nj, <a class="code" href="classHPC4WC_1_1Field.html#a4e6e09f2fcca78e2a14121d1dbacb8a1">Field::const_idx_t</a>&amp; nk, <a class="code" href="classHPC4WC_1_1Field.html#a4e6e09f2fcca78e2a14121d1dbacb8a1">Field::const_idx_t</a>&amp; num_halo);</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classHPC4WC_1_1Partitioner.html#a716e6286ed8d70c28a47d48cd78b53d6">   50</a></span>&#160;    <a class="code" href="classHPC4WC_1_1Partitioner.html#a716e6286ed8d70c28a47d48cd78b53d6">Partitioner</a>(<a class="code" href="classHPC4WC_1_1Field.html#ad8cd70e998b11a747ee0ed0c1b879b2a">Field::const_idx_t</a>&amp; ni, <a class="code" href="classHPC4WC_1_1Field.html#ad8cd70e998b11a747ee0ed0c1b879b2a">Field::const_idx_t</a>&amp; nj, <a class="code" href="classHPC4WC_1_1Field.html#ad8cd70e998b11a747ee0ed0c1b879b2a">Field::const_idx_t</a>&amp; nk, <a class="code" href="classHPC4WC_1_1Field.html#ad8cd70e998b11a747ee0ed0c1b879b2a">Field::const_idx_t</a>&amp; num_halo);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classHPC4WC_1_1Partitioner.html#aa726b495100914b7a4d6dd51cbc53279">   58</a></span>&#160;    <a class="code" href="namespaceHPC4WC.html#a9b8639e0a3bf979f15a8b0782200f1ae">FieldSPtr</a> <a class="code" href="classHPC4WC_1_1Partitioner.html#aa726b495100914b7a4d6dd51cbc53279">getField</a>();</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
@@ -109,7 +109,7 @@ $(function() {
 <div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classHPC4WC_1_1Partitioner.html#aa5cb3e1e229f569f701d971752544f3e">   98</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classHPC4WC_1_1Partitioner.html#aa5cb3e1e229f569f701d971752544f3e">rank</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    std::pair&lt;idx_t, idx_t&gt; getLocalFieldSize(<span class="keywordtype">int</span> <a class="code" href="classHPC4WC_1_1Partitioner.html#aa5cb3e1e229f569f701d971752544f3e">rank</a>);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    std::pair&lt;Field::idx_t, Field::idx_t&gt; getLocalFieldSize(<span class="keywordtype">int</span> <a class="code" href="classHPC4WC_1_1Partitioner.html#aa5cb3e1e229f569f701d971752544f3e">rank</a>);</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    MPI_Comm m_comm; </div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">int</span> m_numRanks; </div>
@@ -117,13 +117,13 @@ $(function() {
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">int</span> m_dimSize[2] = {0, 0}; </div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="namespaceHPC4WC.html#a9b8639e0a3bf979f15a8b0782200f1ae">FieldSPtr</a> m_field; </div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="namespaceHPC4WC.html#a9b8639e0a3bf979f15a8b0782200f1ae">FieldSPtr</a> m_globalField; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    const_idx_t m_ni, m_nj, m_num_halo; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <a class="code" href="classHPC4WC_1_1Field.html#ad8cd70e998b11a747ee0ed0c1b879b2a">Field::const_idx_t</a> m_ni, m_nj, m_num_halo;  </div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;};</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}  <span class="comment">// namespace HPC4WC</span></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* DISABLE_PARTITIONER */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclassHPC4WC_1_1Field_html_a4e6e09f2fcca78e2a14121d1dbacb8a1"><div class="ttname"><a href="classHPC4WC_1_1Field.html#a4e6e09f2fcca78e2a14121d1dbacb8a1">HPC4WC::Field::const_idx_t</a></div><div class="ttdeci">const int const_idx_t</div><div class="ttdoc">field const index type (can be negative)</div><div class="ttdef"><b>Definition:</b> field.h:17</div></div>
+<div class="ttc" id="aclassHPC4WC_1_1Field_html_ad8cd70e998b11a747ee0ed0c1b879b2a"><div class="ttname"><a href="classHPC4WC_1_1Field.html#ad8cd70e998b11a747ee0ed0c1b879b2a">HPC4WC::Field::const_idx_t</a></div><div class="ttdeci">const idx_t const_idx_t</div><div class="ttdoc">field const index type</div><div class="ttdef"><b>Definition:</b> field.h:19</div></div>
 <div class="ttc" id="aclassHPC4WC_1_1Partitioner_html"><div class="ttname"><a href="classHPC4WC_1_1Partitioner.html">HPC4WC::Partitioner</a></div><div class="ttdoc">Space partitioning using a cartesian grid.</div><div class="ttdef"><b>Definition:</b> partitioner.h:21</div></div>
 <div class="ttc" id="aclassHPC4WC_1_1Partitioner_html_a289618981b973636bef85d455cd87a94"><div class="ttname"><a href="classHPC4WC_1_1Partitioner.html#a289618981b973636bef85d455cd87a94">HPC4WC::Partitioner::init</a></div><div class="ttdeci">static void init(int argc, char *argv[])</div><div class="ttdoc">Initialize MPI.</div></div>
 <div class="ttc" id="aclassHPC4WC_1_1Partitioner_html_a44c1d093f2d600a258c8339a4b2fbed1"><div class="ttname"><a href="classHPC4WC_1_1Partitioner.html#a44c1d093f2d600a258c8339a4b2fbed1">HPC4WC::Partitioner::finalize</a></div><div class="ttdeci">static void finalize()</div><div class="ttdoc">Finalize MPI.</div></div>
@@ -136,11 +136,11 @@ $(function() {
 <div class="ttc" id="aclassHPC4WC_1_1Partitioner_html_ae614e8416a2c39e78cf702660954fa9e"><div class="ttname"><a href="classHPC4WC_1_1Partitioner.html#ae614e8416a2c39e78cf702660954fa9e">HPC4WC::Partitioner::scatter</a></div><div class="ttdeci">void scatter()</div><div class="ttdoc">Scatter the global field across all ranks.</div></div>
 <div class="ttc" id="afield_8h_html"><div class="ttname"><a href="field_8h.html">field.h</a></div></div>
 <div class="ttc" id="anamespaceHPC4WC_html"><div class="ttname"><a href="namespaceHPC4WC.html">HPC4WC</a></div><div class="ttdef"><b>Definition:</b> boundary_condition.h:4</div></div>
-<div class="ttc" id="anamespaceHPC4WC_html_a9b8639e0a3bf979f15a8b0782200f1ae"><div class="ttname"><a href="namespaceHPC4WC.html#a9b8639e0a3bf979f15a8b0782200f1ae">HPC4WC::FieldSPtr</a></div><div class="ttdeci">std::shared_ptr&lt; Field &gt; FieldSPtr</div><div class="ttdef"><b>Definition:</b> field.h:122</div></div>
+<div class="ttc" id="anamespaceHPC4WC_html_a9b8639e0a3bf979f15a8b0782200f1ae"><div class="ttname"><a href="namespaceHPC4WC.html#a9b8639e0a3bf979f15a8b0782200f1ae">HPC4WC::FieldSPtr</a></div><div class="ttdeci">std::shared_ptr&lt; Field &gt; FieldSPtr</div><div class="ttdef"><b>Definition:</b> field.h:124</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 6 2021 07:04:30 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jul 6 2021 07:36:43 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

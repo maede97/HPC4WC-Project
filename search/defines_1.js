@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['use_5fopenmp_5fon_5fk_114',['USE_OPENMP_ON_K',['../config_8h.html#af2221a62806956be0b7a4ae019d91788',1,'config.h']]]
+  ['openmp_5fnum_5fthreads_111',['OPENMP_NUM_THREADS',['../config_8h.html#a0c6c724d35e12ef246c4f0a5182b45f5',1,'config.h']]]
 ];
