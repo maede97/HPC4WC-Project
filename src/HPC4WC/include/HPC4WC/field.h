@@ -2,6 +2,7 @@
 
 #include <Eigen/Core>
 #include <vector>
+#include <memory>
 
 namespace HPC4WC {
 
@@ -117,5 +118,7 @@ private:
 
     std::vector<Eigen::MatrixXd> m_data;
 };
+
+using FieldSPtr = std::shared_ptr<Field>;
 
 }  // namespace HPC4WC
