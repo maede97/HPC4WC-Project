@@ -26,7 +26,7 @@ void Diffusion::apply(Field& f, const double& alpha) {
 #ifdef USE_OPENMP_ON_K
     // TODO: tmp, row_halo_current, row_halo_old, col_halo have (currently) to be firstprivate,
     // in order to be actually allocated on each thread. Is there a way to fix this?
-#pragma omp parallel for shared(f) firstprivate(tmp, row_halo_current, row_halo_old, col_halo, a1, a2, a8, a20) default(none)
+#pragma omp parallel for shared(f) firstprivate(tmp, row_halo_current, row_halo_old, col_halo, a1, a2, a8, a20) default(none) num_threads(OPENMP_NUM_THREADS)
 #endif /* USE_OPENMP_ON_K */
     for (Field::idx_t k = 0; k < f.num_k(); k++) {
         Field::idx_t block_i;
@@ -100,7 +100,7 @@ void Diffusion::apply(Field& f, const double& alpha) {
 
 #ifdef USE_OPENMP_ON_K
     // TODO: tmp and row_halo have (currently) to be firstprivate, in order to be actually allocated on each thread. Is there a way to fix this?
-#pragma omp parallel for shared(f) firstprivate(tmp, row_halo, a1, a2, a8, a20) default(none)
+#pragma omp parallel for shared(f) firstprivate(tmp, row_halo, a1, a2, a8, a20) default(none) num_threads(OPENMP_NUM_THREADS)
 #endif /* USE_OPENMP_ON_K */
     for (Field::idx_t k = 0; k < f.num_k(); k++) {
         // i blocking
@@ -143,7 +143,7 @@ void Diffusion::apply(Field& f, const double& alpha) {
 
 #ifdef USE_OPENMP_ON_K
     // TODO: tmp and col_halo have (currently) to be firstprivate, in order to be actually allocated on each thread. Is there a way to fix this?
-#pragma omp parallel for shared(f) firstprivate(tmp, col_halo, a1, a2, a8, a20) default(none)
+#pragma omp parallel for shared(f) firstprivate(tmp, col_halo, a1, a2, a8, a20) default(none) num_threads(OPENMP_NUM_THREADS)
 #endif /* USE_OPENMP_ON_K */
     for (Field::idx_t k = 0; k < f.num_k(); k++) {
         // i blocking
@@ -156,11 +156,11 @@ void Diffusion::apply(Field& f, const double& alpha) {
             }
             // write old col_halo
             if (block_j > 0) {
-                f.setFrom(col_halo,  f.num_halo(), block_j, k);
+                f.setFrom(col_halo, f.num_halo(), block_j, k);
             }
 
             col_halo = tmp.block(0, BLOCK_SIZE_J - f.num_halo(), f.num_i(), f.num_halo());
-            f.setFrom(tmp.block(0, 0, f.num_i(), BLOCK_SIZE_J - f.num_halo()),  f.num_halo(), block_j + f.num_halo(), k);
+            f.setFrom(tmp.block(0, 0, f.num_i(), BLOCK_SIZE_J - f.num_halo()), f.num_halo(), block_j + f.num_halo(), k);
         }
 
         // Do residual rows using simple loop
@@ -176,7 +176,7 @@ void Diffusion::apply(Field& f, const double& alpha) {
         }
 
         // write final col_halo
-        f.setFrom(col_halo,  f.num_halo(), block_j, k);
+        f.setFrom(col_halo, f.num_halo(), block_j, k);
     }
 
 #endif
@@ -185,7 +185,7 @@ void Diffusion::apply(Field& f, const double& alpha) {
     Eigen::MatrixXd tmp(f.num_i(), f.num_j());
 #ifdef USE_OPENMP_ON_K
     // TODO: tmp has (currently) to be firstprivate, in order to be actually allocated on each thread. Is there a way to fix this?
-#pragma omp parallel for shared(f) firstprivate(tmp, a1, a2, a8, a20) default(none)
+#pragma omp parallel for shared(f) firstprivate(tmp, a1, a2, a8, a20) default(none) num_threads(OPENMP_NUM_THREADS)
 #endif /* USE_OPENMP_ON_K */
     for (Field::idx_t k = 0; k < f.num_k(); k++) {
         for (Field::idx_t i = 0; i < f.num_i(); i++) {

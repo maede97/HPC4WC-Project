@@ -105,7 +105,7 @@ private:
      * @param[in] rank The rank for which to get the size.
      * @return The field size as a pair, i and j direction.
      */
-    std::pair<idx_t, idx_t> getLocalFieldSize(int rank);
+    std::pair<Field::idx_t, Field::idx_t> getLocalFieldSize(int rank);
 
     MPI_Comm m_comm; ///< cartesian communicator
     int m_numRanks; ///< max number of ranks
@@ -113,7 +113,7 @@ private:
     int m_dimSize[2] = {0, 0}; ///< order of ranks in the cartesian grid
     FieldSPtr m_field; ///< local field
     FieldSPtr m_globalField; ///< global field (only on rank 0, else nullptr)
-    const_idx_t m_ni, m_nj, m_num_halo; ///< store global ni, global nj and num_halo
+    Field::const_idx_t m_ni, m_nj, m_num_halo;  ///< store global ni, global nj and num_halo
 };
 
 }  // namespace HPC4WC

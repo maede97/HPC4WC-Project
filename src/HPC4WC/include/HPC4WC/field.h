@@ -9,12 +9,14 @@ namespace HPC4WC {
 /**
  * @brief A field. Holds data.
  * @todo Set storage order based on config!
- * @todo Idx_t should be strictly positive (unsigned), this means we must change the indices.
+ * 
+ * Indices start at 0 and go up to nx + 2 * num_halo,
+ * this means, the actual field starts at (num_halo, num_halo)
  */
 class Field {
 public:
-    using idx_t = int; ///< field index type (can be negative)
-    using const_idx_t = const int; ///< field const index type (can be negative)
+    using idx_t = long; ///< field index type
+    using const_idx_t = const idx_t; ///< field const index type
 
     /**
      * @brief Create a field.

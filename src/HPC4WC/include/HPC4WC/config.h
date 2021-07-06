@@ -8,12 +8,13 @@
  */
 
 #define USE_OPENMP_ON_K
+#define OPENMP_NUM_THREADS 2
 
 #define BLOCK_SIZE_I 15
 #define BLOCK_SIZE_J 10
 
-#define BLOCK_I
-#define BLOCK_J
+//#define BLOCK_I
+//#define BLOCK_J
 
 // No follow helpers for the diffusion.cpp
 #if !defined(BLOCK_I) && !defined(BLOCK_J)
