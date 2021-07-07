@@ -15,8 +15,8 @@ namespace HPC4WC {
  * Uses MPI to exchange halo data.
  * 
  * @todo Check all MPI errors
+ * 
  * @todo potentially replace Recv/Send with non-blocking (for scatter/gather)
- * @todo Merge multiple calls (for all k) into a single MPI send / receive.
  */
 class Partitioner {
 public:
@@ -84,8 +84,8 @@ public:
      * @brief Halo Exchange
      * 
      * Applies periodic boundary conditions (halo exchange) in both i and j direction.
-     * See PeriodicBoundaryConditions::apply with PERIODICITY::BOTH.
-     * @todo If only one rank, fall back to BoundaryCondition::apply
+     * See PeriodicBoundaryConditions::apply with PeriodicBoundaryConditions::PERIODICITY::BOTH.
+     * If only one rank is available, this function will fallback to PeriodicBoundaryConditions.
      */
     void applyPeriodicBoundaryConditions();
 

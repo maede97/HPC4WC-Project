@@ -1,3 +1,4 @@
+#include <HPC4WC/boundary_condition.h>
 #include <HPC4WC/partitioner.h>
 
 #include <iostream>
@@ -178,6 +179,13 @@ void Partitioner::gather() {
 }
 
 void Partitioner::applyPeriodicBoundaryConditions() {
+    // if we have only a single rank, we can perform the default periodic boundary conditions
+    // and don't have to send data around over the bus.
+    if (m_numRanks == 1) {
+        PeriodicBoundaryConditions::apply(*m_field.get(), PeriodicBoundaryConditions::PERIODICITY::BOTH);
+        return;
+    }
+
     // get neighbours
     int top, bottom, right, left;
 
@@ -194,91 +202,109 @@ void Partitioner::applyPeriodicBoundaryConditions() {
     Field::const_idx_t f_nj = m_field->num_j();
     Field::const_idx_t f_nk = m_field->num_k();
 
-    std::vector<double> snd_buf_tb(m_num_halo * f_nj);
-    std::vector<double> rcv_buf_tb(m_num_halo * f_nj);
-    std::vector<double> snd_buf_lr(m_num_halo * (f_ni + 2 * m_num_halo));
-    std::vector<double> rcv_buf_lr(m_num_halo * (f_ni + 2 * m_num_halo));
+    std::vector<double> snd_buf_t(m_num_halo * f_nj * f_nk);
+    std::vector<double> rcv_buf_t(m_num_halo * f_nj * f_nk);
+    std::vector<double> snd_buf_b(m_num_halo * f_nj * f_nk);
+    std::vector<double> rcv_buf_b(m_num_halo * f_nj * f_nk);
+    std::vector<double> snd_buf_l(m_num_halo * (f_ni + 2 * m_num_halo) * f_nk);
+    std::vector<double> rcv_buf_l(m_num_halo * (f_ni + 2 * m_num_halo) * f_nk);
+    std::vector<double> snd_buf_r(m_num_halo * (f_ni + 2 * m_num_halo) * f_nk);
+    std::vector<double> rcv_buf_r(m_num_halo * (f_ni + 2 * m_num_halo) * f_nk);
 
+    // top halo --> recv from top, send to bottom
+
+    // post Recv.
+
+    MPI_Request request_top;
+    MPI_Irecv(rcv_buf_t.data(), (int)rcv_buf_t.size(), MPI_DOUBLE, top, 2, m_comm, &request_top);
+    MPI_Request request_bottom;
+    MPI_Irecv(rcv_buf_b.data(), (int)rcv_buf_b.size(), MPI_DOUBLE, bottom, 1, m_comm, &request_bottom);
+    MPI_Request request_left;
+    MPI_Irecv(rcv_buf_l.data(), (int)rcv_buf_l.size(), MPI_DOUBLE, left, 4, m_comm, &request_left);
+    MPI_Request request_right;
+    MPI_Irecv(rcv_buf_r.data(), (int)rcv_buf_r.size(), MPI_DOUBLE, right, 3, m_comm, &request_right);
+
+    // fill buffer
+    Field::idx_t idx = 0;
     for (Field::idx_t k = 0; k < f_nk; k++) {
-        // top halo --> recv from top, send to bottom
-
-        // post Recv.
-        MPI_Request request_top;
-        MPI_Irecv(rcv_buf_tb.data(), (int)rcv_buf_tb.size(), MPI_DOUBLE, top, 2, m_comm, &request_top);
-
-        // fill buffer
-        Field::idx_t idx = 0;
         for (Field::idx_t i = 0; i < m_num_halo; i++) {
             for (Field::idx_t j = 0; j < f_nj; j++) {
-                snd_buf_tb[idx++] = m_field->operator()(i + f_ni, j + m_num_halo, k);
+                snd_buf_t[idx++] = m_field->operator()(i + f_ni, j + m_num_halo, k);
             }
         }
+    }
+    //MPI_Sendrecv(snd_buf_t.data(), (int)snd_buf_t.size(), MPI_DOUBLE, bottom, 2, rcv_buf_t.data(), (int)rcv_buf_t.size(), MPI_DOUBLE, top, 2, m_comm, MPI_STATUS_IGNORE);
 
-        // send buffer
-        MPI_Send(snd_buf_tb.data(), (int)snd_buf_tb.size(), MPI_DOUBLE, bottom, 2, m_comm);
-
-        // unack rcv_buf_tb
-        MPI_Wait(&request_top, MPI_STATUS_IGNORE);
-        idx = 0;
+    MPI_Send(snd_buf_t.data(), (int)snd_buf_t.size(), MPI_DOUBLE, bottom, 2, m_comm);
+    MPI_Wait(&request_top, MPI_STATUS_IGNORE);
+    idx = 0;
+    for (Field::idx_t k = 0; k < f_nk; k++) {
         for (Field::idx_t i = 0; i < m_num_halo; i++) {
             for (Field::idx_t j = 0; j < f_nj; j++) {
-                m_field->operator()(i, j + m_num_halo, k) = rcv_buf_tb[idx++];
+                m_field->operator()(i, j + m_num_halo, k) = rcv_buf_t[idx++];
             }
         }
+    }
 
-        // bottom halo --> recv from bottom, send to top
-        // post recv.
-        MPI_Request request_bottom;
-        MPI_Irecv(rcv_buf_tb.data(), (int)rcv_buf_tb.size(), MPI_DOUBLE, bottom, 1, m_comm, &request_bottom);
-        // fill buffer
-        idx = 0;
+    // bottom halo --> recv from bottom, send to top
+    // fill buffer
+    idx = 0;
+    for (Field::idx_t k = 0; k < f_nk; k++) {
         for (Field::idx_t i = 0; i < m_num_halo; i++) {
             for (Field::idx_t j = 0; j < f_nj; j++) {
-                snd_buf_tb[idx++] = m_field->operator()(i + m_num_halo, j + m_num_halo, k);
+                snd_buf_b[idx++] = m_field->operator()(i + m_num_halo, j + m_num_halo, k);
             }
         }
-        MPI_Send(snd_buf_tb.data(), (int)snd_buf_tb.size(), MPI_DOUBLE, top, 1, m_comm);
-        MPI_Wait(&request_bottom, MPI_STATUS_IGNORE);
-        idx = 0;
+    }
+    //MPI_Sendrecv(snd_buf_b.data(), (int)snd_buf_b.size(), MPI_DOUBLE, top, 1., rcv_buf_b.data(), (int)rcv_buf_b.size(), MPI_DOUBLE, bottom, 1, m_comm, MPI_STATUS_IGNORE);
+    MPI_Send(snd_buf_b.data(), (int)snd_buf_b.size(), MPI_DOUBLE, top, 1, m_comm);
+    MPI_Wait(&request_bottom, MPI_STATUS_IGNORE);
+    idx = 0;
+    for (Field::idx_t k = 0; k < f_nk; k++) {
         for (Field::idx_t i = 0; i < m_num_halo; i++) {
             for (Field::idx_t j = 0; j < f_nj; j++) {
-                m_field->operator()(i + f_ni + m_num_halo, j + m_num_halo, k) = rcv_buf_tb[idx++];
+                m_field->operator()(i + f_ni + m_num_halo, j + m_num_halo, k) = rcv_buf_b[idx++];
             }
         }
+    }
 
-        // left halo --> recv from left, send to right
-        MPI_Request request_left;
-        MPI_Irecv(rcv_buf_lr.data(), (int)rcv_buf_lr.size(), MPI_DOUBLE, left, 4, m_comm, &request_left);
-        idx = 0;
+    // left halo --> recv from left, send to right
+    idx = 0;
+    for (Field::idx_t k = 0; k < f_nk; k++) {
         for (Field::idx_t i = 0; i < f_ni + 2 * m_num_halo; i++) {
             for (Field::idx_t j = 0; j < m_num_halo; j++) {
-                snd_buf_lr[idx++] = m_field->operator()(i, j + f_nj, k);
+                snd_buf_l[idx++] = m_field->operator()(i, j + f_nj, k);
             }
         }
-        MPI_Send(snd_buf_lr.data(), (int)snd_buf_lr.size(), MPI_DOUBLE, right, 4, m_comm);
-        MPI_Wait(&request_left, MPI_STATUS_IGNORE);
-        idx = 0;
+    }
+    //MPI_Sendrecv(snd_buf_l.data(), (int)snd_buf_l.size(), MPI_DOUBLE, right, 4, rcv_buf_l.data(), (int)rcv_buf_l.size(), MPI_DOUBLE, left, 4, m_comm, MPI_STATUS_IGNORE);
+    MPI_Send(snd_buf_l.data(), (int)snd_buf_l.size(), MPI_DOUBLE, right, 4, m_comm);
+    MPI_Wait(&request_left, MPI_STATUS_IGNORE);
+    idx = 0;
+    for (Field::idx_t k = 0; k < f_nk; k++) {
         for (Field::idx_t i = 0; i < f_ni + 2 * m_num_halo; i++) {
             for (Field::idx_t j = 0; j < m_num_halo; j++) {
-                m_field->operator()(i, j, k) = rcv_buf_lr[idx++];
+                m_field->operator()(i, j, k) = rcv_buf_l[idx++];
             }
         }
-
-        // right halo --> recv from right, send to left
-        MPI_Request request_right;
-        MPI_Irecv(rcv_buf_lr.data(), (int)rcv_buf_lr.size(), MPI_DOUBLE, right, 3, m_comm, &request_right);
-        idx = 0;
+    }
+    // right halo --> recv from right, send to left
+    idx = 0;
+    for (Field::idx_t k = 0; k < f_nk; k++) {
         for (Field::idx_t i = 0; i < f_ni + 2 * m_num_halo; i++) {
             for (Field::idx_t j = 0; j < m_num_halo; j++) {
-                snd_buf_lr[idx++] = m_field->operator()(i, j + m_num_halo, k);
+                snd_buf_r[idx++] = m_field->operator()(i, j + m_num_halo, k);
             }
         }
-        MPI_Send(snd_buf_lr.data(), (int)snd_buf_lr.size(), MPI_DOUBLE, left, 3, m_comm);
-        MPI_Wait(&request_right, MPI_STATUS_IGNORE);
-        idx = 0;
+    }
+    //MPI_Sendrecv(snd_buf_r.data(), (int)snd_buf_r.size(), MPI_DOUBLE, left, 3, rcv_buf_r.data(), (int)rcv_buf_r.size(), MPI_DOUBLE, right, 3, m_comm, MPI_STATUS_IGNORE);
+    MPI_Send(snd_buf_r.data(), (int)snd_buf_r.size(), MPI_DOUBLE, left, 3, m_comm);
+    MPI_Wait(&request_right, MPI_STATUS_IGNORE);
+    idx = 0;
+    for (Field::idx_t k = 0; k < f_nk; k++) {
         for (Field::idx_t i = 0; i < f_ni + 2 * m_num_halo; i++) {
             for (Field::idx_t j = 0; j < m_num_halo; j++) {
-                m_field->operator()(i, j + m_num_halo + f_nj, k) = rcv_buf_lr[idx++];
+                m_field->operator()(i, j + m_num_halo + f_nj, k) = rcv_buf_r[idx++];
             }
         }
     }
