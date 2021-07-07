@@ -40,7 +40,7 @@ public:
      * @param[in] argc Number of entries in argv
      * @param[in] argv Array of arguments.
      */
-    ArgsParser(int argc, char* argv[]);
+    ArgsParser(int argc, char* argv[], bool default_args=true);
 
     /**
      * @brief Add an optional bool argument to the parser.
@@ -61,6 +61,16 @@ public:
      * @param[in] Helper string for the help display.
      */
     void add_argument(Field::idx_t& result, const char* argument, const char* help);
+
+    /**
+     * @brief Add an optional Field::idx_t argument to the parser.
+     * 
+     * The default value is the value the variable result currently has.
+     * @param[inout] result In: Default value, out: new value if the argument has been specified.
+     * @param[in] argument The argument to search for.
+     * @param[in] Helper string for the help display.
+     */
+    void add_argument(std::string& result, const char* argument, const char* help);
 
     /**
      * @brief Checker to see if an executable should show the help.

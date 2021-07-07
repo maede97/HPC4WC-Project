@@ -1,4 +1,5 @@
 #include <HPC4WC/autotuner.h>
+#include <HPC4WC/timer.h>
 
 #include <iostream>
 
@@ -6,6 +7,7 @@
 #include <Windows.h>
 #else
 #include <unistd.h>
+
 #include <array>
 #include <memory>
 #endif
@@ -32,8 +34,6 @@ DWORD __stdcall readDataFromExtProgram(void* argh) {
     DWORD dwRead;
     CHAR chBuf[BUFSIZE];
     BOOL bSuccess = FALSE;
-
-    CURRENT_OUTPUT = "";
 
     for (;;) {
         bSuccess = ReadFile(m_hChildStd_OUT_Rd, chBuf, BUFSIZE, &dwRead, NULL);
@@ -106,8 +106,7 @@ HRESULT run_win_program(std::string externalProgram, std::string arguments, unsi
 #else
 int run_posix_program(std::string externalProgram, std::string arguments) {
     std::array<char, BUFSIZE> buffer;
-    CURRENT_OUTPUT = "";
-    std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(std::string("./"+ externalProgram + " " + arguments).c_str(), "r"), pclose);
+    std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(std::string("./" + externalProgram + " " + arguments).c_str(), "r"), pclose);
     if (!pipe)
         return -1;
     try {
@@ -122,19 +121,42 @@ int run_posix_program(std::string externalProgram, std::string arguments) {
 #endif
 namespace HPC4WC {
 
-AutoTuner::AutoTuner(const char* exe_name) : m_exe_name(exe_name) {}
+AutoTuner::AutoTuner(const char* exe_name, const char* exe_args) : m_exe_name(exe_name), m_exe_args(exe_args) {}
 
-std::string AutoTuner::open_with_arguments(const std::string& arguments) const {
+double AutoTuner::open_with_arguments(const std::string& arguments) const {
+    CURRENT_OUTPUT = "";
+    Timer timer;
 #ifdef _WIN32
-    HRESULT res = run_win_program(m_exe_name, arguments, m_max_wait_millseconds);
+    HRESULT res = run_win_program(m_exe_name, arguments + " " + m_exe_args, m_max_wait_millseconds);
 #else
-    int res = run_posix_program(m_exe_name, arguments);
+    int res = run_posix_program(m_exe_name, arguments + " " + m_exe_args);
 #endif
     if (res != 0) {
         throw std::runtime_error("Something did not work.");
     }
-    return CURRENT_OUTPUT;
+    return timer.timeElapsed();
 }
 
-void AutoTuner::search() const {}
+void AutoTuner::add_bool_argument(const char* argument) {
+    m_arguments.push_back({argument, {0, 1}});
+}
+
+void AutoTuner::add_range_argument(const char* argument, Field::const_idx_t& lower_bound, Field::const_idx_t& upper_bound, Field::const_idx_t& step_size) {
+    m_arguments.push_back({argument, {}});
+    for (Field::idx_t i = lower_bound; i <= upper_bound; i += step_size) {
+        m_arguments.back().second.push_back(i);
+    }
+}
+
+void AutoTuner::search() const {
+    // search every permutation of m_arguments_bool and m_arguments_range
+    // todo, for debugging: only first argument checked.
+
+    for (size_t curr_arg = 0; curr_arg < m_arguments[0].second.size(); curr_arg++) {
+        // TODO: build param string
+        std::string params = std::string("-") + m_arguments[0].first + " " + std::to_string(m_arguments[0].second[curr_arg]);
+        double time = open_with_arguments(params);
+        std::cout << params << ": " << time << "s" << std::endl;
+    }
+}
 }  // namespace HPC4WC
