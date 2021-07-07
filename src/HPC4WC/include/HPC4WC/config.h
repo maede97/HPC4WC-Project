@@ -1,29 +1,20 @@
 #pragma once
+#include <HPC4WC/field.h>
+
+namespace HPC4WC {
 
 /**
- * @brief General note on the configuration
- * 
- * @todo Write this note.
- * 
+ * @brief Configuration class for blocking, OMP, MPI.
  */
+class Config {
+public:
+    //static bool USE_OPENMP_ON_K;
+    static Field::idx_t OPENMP_NUM_THREADS;
 
-#define USE_OPENMP_ON_K
-#define OPENMP_NUM_THREADS 2
+    static Field::idx_t BLOCK_SIZE_I;
+    static Field::idx_t BLOCK_SIZE_J;
 
-#define BLOCK_SIZE_I 15
-#define BLOCK_SIZE_J 10
-
-//#define BLOCK_I
-//#define BLOCK_J
-
-// No follow helpers for the diffusion.cpp
-#if !defined(BLOCK_I) && !defined(BLOCK_J)
-#define BLOCK_NONE
-#endif
-#if defined(BLOCK_I) && defined(BLOCK_J)
-#define BLOCK_I_AND_J
-// undefine block_i and block_j to make cpp file easier (no if/else required)
-#undef BLOCK_I
-#undef BLOCK_J
-#endif
-// End helpers for diffusion.cpp
+    static bool BLOCK_I;
+    static bool BLOCK_J;
+};
+}  // namespace HPC4WC
