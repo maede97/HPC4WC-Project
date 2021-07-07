@@ -9,7 +9,6 @@ macro(fetch what)
     mark_as_advanced(${${what}_SOURCE_DIR})
 endmacro()
 
-
 FetchContent_Declare(
     eigen
     URL                 https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.zip
@@ -28,6 +27,15 @@ fetch(googletest)
 # For Windows: Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR})
+
+# Simple args-parser
+FetchContent_Declare(
+    flags
+    GIT_REPOSITORY	    https://github.com/sailormoon/flags.git
+    GIT_TAG		        master
+)
+fetch(flags)
+set(FLAGS_SOURCE_DIR ${flags_SOURCE_DIR} CACHE INTERNAL "flags source directory")
 
 # Set folder for visual studio
 if(WIN32)

@@ -6,10 +6,12 @@ add_executable(diffusion2d diffusion2d.cpp)
 
 target_link_libraries(diffusion2d eigen HPC4WC)
 target_include_directories(diffusion2d PUBLIC HPC4WC)
-
+target_include_directories(diffusion2d PUBLIC ${FLAGS_SOURCE_DIR}/include)
 
 if(${MPI_FOUND})
     add_executable(mpi_diffusion mpi_diffusion.cpp)
     target_link_libraries(mpi_diffusion eigen HPC4WC)
     target_include_directories(mpi_diffusion PUBLIC HPC4WC)
+
+    target_include_directories(mpi_diffusion PUBLIC ${FLAGS_SOURCE_DIR}/include)
 endif(${MPI_FOUND})
