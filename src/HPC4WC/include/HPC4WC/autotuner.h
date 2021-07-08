@@ -28,7 +28,7 @@ public:
      * @param[in] exe_name
      * @param[in] exe_args
      */
-    AutoTuner(const char* exe_name, const char* exe_args);
+    AutoTuner(const char* exe_name, const char* exe_args, Field::const_idx_t& iterations=1);
     
     /**
      * @brief Add a variable to search.
@@ -48,12 +48,20 @@ public:
     void search() const;
 
 private:
-    // returns seconds
+    /**
+     * @brief Open the executable with given arguments.
+     * @param[in] arguments The arguments to pass to the executable.
+     * @return The runtime in seconds.
+     */
     double open_with_arguments(const std::string& arguments) const;
     const char* m_exe_name;
     const char* m_exe_args;
-    unsigned m_max_wait_millseconds = 15000;  // 15s
+    unsigned m_max_wait_millseconds = 30000;  // 30s
+    Field::const_idx_t m_iterations;
 
+    /**
+     * Argument with corresponding possibilities of values (currently, only integer values are allowed)
+     */
     std::vector<std::pair<const char*, std::vector<Field::idx_t>>> m_arguments;
 };
 }  // namespace HPC4WC

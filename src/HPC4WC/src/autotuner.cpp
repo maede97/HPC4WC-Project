@@ -23,7 +23,7 @@
 // https://stackoverflow.com/questions/478898/how-do-i-execute-a-command-and-get-the-output-of-the-command-within-c-using-po
 
 #define BUFSIZE 1024
-std::string CURRENT_OUTPUT;
+std::string CURRENT_OUTPUT;  ///< temporary variable for the std. output of the program executed.
 
 #ifdef _WIN32
 HANDLE m_hChildStd_OUT_Rd = NULL;
@@ -121,7 +121,7 @@ int run_posix_program(std::string externalProgram, std::string arguments) {
 #endif
 namespace HPC4WC {
 
-AutoTuner::AutoTuner(const char* exe_name, const char* exe_args) : m_exe_name(exe_name), m_exe_args(exe_args) {}
+AutoTuner::AutoTuner(const char* exe_name, const char* exe_args, Field::const_idx_t& iterations) : m_exe_name(exe_name), m_exe_args(exe_args), m_iterations(iterations) {}
 
 double AutoTuner::open_with_arguments(const std::string& arguments) const {
     CURRENT_OUTPUT = "";
@@ -149,14 +149,50 @@ void AutoTuner::add_range_argument(const char* argument, Field::const_idx_t& low
 }
 
 void AutoTuner::search() const {
-    // search every permutation of m_arguments_bool and m_arguments_range
-    // todo, for debugging: only first argument checked.
+    // source: https://gist.github.com/Yengas/9010715
+    // search every permutation of m_arguments
 
-    for (size_t curr_arg = 0; curr_arg < m_arguments[0].second.size(); curr_arg++) {
-        // TODO: build param string
-        std::string params = std::string("-") + m_arguments[0].first + " " + std::to_string(m_arguments[0].second[curr_arg]);
-        double time = open_with_arguments(params);
-        std::cout << params << ": " << time << "s" << std::endl;
+    Field::idx_t search_space_size = 1;
+    for (auto& arg : m_arguments) {
+        search_space_size *= arg.second.size();
     }
+    std::cout << "Performing search over " << search_space_size << " different possibilities." << std::endl;
+
+    std::vector<size_t> counters(m_arguments.size(), 0);
+
+    std::string best_params;
+    double best_time = 100000;
+
+    for (size_t i = 0; i < search_space_size; i++) {
+        std::string param = "";
+        for (size_t p = 0; p < m_arguments.size(); p++) {
+            param = param + "-" + m_arguments[p].first + " " + std::to_string(m_arguments[p].second[counters[p]]) + " ";
+        }
+
+        std::cout << param << std::endl;
+        double total_time = 0;
+        for (Field::idx_t t = 0; t < m_iterations; t++) {
+            double time = open_with_arguments(param);
+            total_time += time;
+        }
+        std::cout << "on average took " << total_time / m_iterations << " seconds" << std::endl;
+        if (total_time / m_iterations < best_time) {
+            best_time = total_time / m_iterations;
+            best_params = param;
+        }
+
+        // do use a signed loop variable here because otherwise we have an integer underflow and then vector access error.
+        for (long index = counters.size() - 1; index >= 0; index--) {
+            if (counters[index] + 1 < m_arguments[index].second.size()) {
+                counters[index]++;
+                break;
+            }
+            counters[index] = 0;
+        }
+    }
+
+    std::cout << "==================" << std::endl;
+    std::cout << "Search complete." << std::endl;
+    std::cout << "Best parameters (" << best_time << "s): " << std::endl << best_params << std::endl;
 }
 }  // namespace HPC4WC
