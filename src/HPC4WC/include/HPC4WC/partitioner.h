@@ -50,6 +50,11 @@ public:
     Partitioner(Field::const_idx_t& ni, Field::const_idx_t& nj, Field::const_idx_t& nk, Field::const_idx_t& num_halo);
 
     /**
+     * @brief Default deconstructor
+     */
+    ~Partitioner() {}
+
+    /**
      * @brief Get a pointer to the part of the global field belonging to this rank.
      * 
      * Uses the cartesian grid to determine which part is stored on this rank.

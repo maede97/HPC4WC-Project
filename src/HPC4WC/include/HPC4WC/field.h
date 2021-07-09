@@ -39,9 +39,18 @@ public:
      */
     Field(const_idx_t& ni, const_idx_t& nj, const_idx_t& nk, const_idx_t& num_halo, const double& value);
 
+    /**
+     * @brief Creating a field from another is not allowed. (DELETED)
+     */
     Field(const Field&) = delete;
+    /**
+     * @brief Creating a field without a size is not allowed. (DELETED)
+     */
     Field() = delete;
 
+    /**
+     * @brief Default deconstructor.
+     */
     ~Field() {}
 
     /**

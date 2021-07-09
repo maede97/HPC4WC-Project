@@ -39,8 +39,14 @@ public:
      * @brief Initialize the argument parser with the number of arguments and all given arguments.
      * @param[in] argc Number of entries in argv
      * @param[in] argv Array of arguments.
+     * @param[in] default_args If true, also adds the configuration parameters (block_i etc.), default true.
      */
     ArgsParser(int argc, char* argv[], bool default_args=true);
+
+    /**
+     * @brief Default deconstructor
+     */
+    ~ArgsParser() {}
 
     /**
      * @brief Add an optional bool argument to the parser.
@@ -85,11 +91,11 @@ public:
     void help(std::ostream& stream) const;
 
 private:
-    flags::args m_args;
+    flags::args m_args; ///< internal argument parser
 
-    const char* m_argv_0;
+    const char* m_argv_0; ///< the name of the program, used inside help()
 
-    std::vector<std::array<std::string, 3>> m_arguments;
-    std::vector<std::array<std::string, 3>> m_config_entries;
+    std::vector<std::array<std::string, 3>> m_arguments; ///< user defined arguments
+    std::vector<std::array<std::string, 3>> m_config_entries; ///< config arguments (block_i etc.)
 };
 }  // namespace HPC4WC

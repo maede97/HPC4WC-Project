@@ -8,13 +8,12 @@ namespace HPC4WC {
  */
 class Config {
 public:
-    //static bool USE_OPENMP_ON_K;
-    static Field::idx_t OPENMP_NUM_THREADS;
+    static Field::idx_t OPENMP_NUM_THREADS; ///< How many OpenMP threads the k loops should use, default 1.
 
-    static Field::idx_t BLOCK_SIZE_I;
-    static Field::idx_t BLOCK_SIZE_J;
+    static Field::idx_t BLOCK_SIZE_I; ///< If BLOCK_I, how big the blocks should be in i direction, default 15.
+    static Field::idx_t BLOCK_SIZE_J; ///< If BLOCK_J, how big the blocks should be in j direction, default 15.
 
-    static bool BLOCK_I;
-    static bool BLOCK_J;
+    static bool BLOCK_I; ///< Whether to block in i direction (applied to the diffusion).
+    static bool BLOCK_J; ///< Whether to block in j direction (applied to the diffusion).
 };
 }  // namespace HPC4WC
