@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['timeelapsed_94',['timeElapsed',['../classHPC4WC_1_1Timer.html#aa857269420901ee0c6439bda2e1f342b',1,'HPC4WC::Timer']]],
-  ['timer_95',['Timer',['../classHPC4WC_1_1Timer.html#ad45ee1f5cd2bee2440592b2ea6d5c528',1,'HPC4WC::Timer']]],
-  ['timeval_5fsubtract_96',['timeval_subtract',['../classHPC4WC_1_1Timer.html#a8adcce3b09734fe426ea212a72549d55',1,'HPC4WC::Timer']]]
+  ['scatter_114',['scatter',['../classHPC4WC_1_1Partitioner.html#ae614e8416a2c39e78cf702660954fa9e',1,'HPC4WC::Partitioner']]],
+  ['search_115',['search',['../classHPC4WC_1_1AutoTuner.html#a77041692be5a11f6a63e19a0ce3e7fdd',1,'HPC4WC::AutoTuner']]],
+  ['setfrom_116',['setFrom',['../classHPC4WC_1_1Field.html#a185ab1eadd84b630abb8b236f6db5af1',1,'HPC4WC::Field::setFrom(const Field &amp;f)'],['../classHPC4WC_1_1Field.html#acd20489468e20f59f15d139c7458690d',1,'HPC4WC::Field::setFrom(const Eigen::MatrixXd &amp;ij_plane_part, const_idx_t &amp;i, const_idx_t &amp;j, const_idx_t &amp;k)']]]
 ];

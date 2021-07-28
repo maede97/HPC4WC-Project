@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['diagonalinitialcondition_57',['DiagonalInitialCondition',['../classHPC4WC_1_1DiagonalInitialCondition.html',1,'HPC4WC']]],
-  ['diffusion_58',['Diffusion',['../classHPC4WC_1_1Diffusion.html',1,'HPC4WC']]],
-  ['dirichletboundaryconditions_59',['DirichletBoundaryConditions',['../classHPC4WC_1_1DirichletBoundaryConditions.html',1,'HPC4WC']]]
+  ['config_70',['Config',['../classHPC4WC_1_1Config.html',1,'HPC4WC']]],
+  ['cubeinitialcondition_71',['CubeInitialCondition',['../classHPC4WC_1_1CubeInitialCondition.html',1,'HPC4WC']]]
 ];

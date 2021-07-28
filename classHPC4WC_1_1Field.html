@@ -105,10 +105,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a49a0296fa8239acce8548fa86fe4a2f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a field with a given value.  <a href="classHPC4WC_1_1Field.html#a49a0296fa8239acce8548fa86fe4a2f4">More...</a><br /></td></tr>
 <tr class="separator:a49a0296fa8239acce8548fa86fe4a2f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ed838e9ea9a14056ac9a8fe2daf09a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1Field.html#a3ed838e9ea9a14056ac9a8fe2daf09a1">Field</a> (const <a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a3ed838e9ea9a14056ac9a8fe2daf09a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creating a field from another is not allowed. (DELETED)  <a href="classHPC4WC_1_1Field.html#a3ed838e9ea9a14056ac9a8fe2daf09a1">More...</a><br /></td></tr>
 <tr class="separator:a3ed838e9ea9a14056ac9a8fe2daf09a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae265ba88f0455d0a158636362ac21b2b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1Field.html#ae265ba88f0455d0a158636362ac21b2b">Field</a> ()=delete</td></tr>
+<tr class="memdesc:ae265ba88f0455d0a158636362ac21b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creating a field without a size is not allowed. (DELETED)  <a href="classHPC4WC_1_1Field.html#ae265ba88f0455d0a158636362ac21b2b">More...</a><br /></td></tr>
 <tr class="separator:ae265ba88f0455d0a158636362ac21b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d1c6b1276196e45d8776557bdf72214"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1Field.html#a0d1c6b1276196e45d8776557bdf72214">~Field</a> ()</td></tr>
+<tr class="memdesc:a0d1c6b1276196e45d8776557bdf72214"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default deconstructor.  <a href="classHPC4WC_1_1Field.html#a0d1c6b1276196e45d8776557bdf72214">More...</a><br /></td></tr>
 <tr class="separator:a0d1c6b1276196e45d8776557bdf72214"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31803848f2856dd0628802fb434b2de3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1Field.html#a31803848f2856dd0628802fb434b2de3">operator()</a> (<a class="el" href="classHPC4WC_1_1Field.html#ad8cd70e998b11a747ee0ed0c1b879b2a">const_idx_t</a> &amp;i, <a class="el" href="classHPC4WC_1_1Field.html#ad8cd70e998b11a747ee0ed0c1b879b2a">const_idx_t</a> &amp;j, <a class="el" href="classHPC4WC_1_1Field.html#ad8cd70e998b11a747ee0ed0c1b879b2a">const_idx_t</a> &amp;k) const</td></tr>
 <tr class="memdesc:a31803848f2856dd0628802fb434b2de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get access to a field variable.  <a href="classHPC4WC_1_1Field.html#a31803848f2856dd0628802fb434b2de3">More...</a><br /></td></tr>
@@ -137,7 +140,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A field. Holds data. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Set storage order based on config!</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Set storage order based on config!</dd></dl>
 <p>Indices start at 0 and go up to nx + 2 * num_halo, this means, the actual field starts at (num_halo, num_halo) </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a7e88d7d5a04f79d054966bed07f6ee73"></a>
@@ -318,6 +321,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creating a field from another is not allowed. (DELETED) </p>
+
 </div>
 </div>
 <a id="ae265ba88f0455d0a158636362ac21b2b"></a>
@@ -343,6 +348,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creating a field without a size is not allowed. (DELETED) </p>
+
 </div>
 </div>
 <a id="a0d1c6b1276196e45d8776557bdf72214"></a>
@@ -367,6 +374,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Default deconstructor. </p>
 
 </div>
 </div>
@@ -681,7 +690,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 7 2021 09:42:06 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Wed Jul 28 2021 11:19:17 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

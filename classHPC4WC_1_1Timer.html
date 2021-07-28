@@ -82,17 +82,24 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Simple timer class.  
+ <a href="classHPC4WC_1_1Timer.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="timer_8h_source.html">timer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad45ee1f5cd2bee2440592b2ea6d5c528"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1Timer.html#ad45ee1f5cd2bee2440592b2ea6d5c528">Timer</a> ()</td></tr>
+<tr class="memdesc:ad45ee1f5cd2bee2440592b2ea6d5c528"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor - resets the timer for the first time.  <a href="classHPC4WC_1_1Timer.html#ad45ee1f5cd2bee2440592b2ea6d5c528">More...</a><br /></td></tr>
 <tr class="separator:ad45ee1f5cd2bee2440592b2ea6d5c528"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a514ce0d35d734eecc3ebbaff36b83a46"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1Timer.html#a514ce0d35d734eecc3ebbaff36b83a46">~Timer</a> ()</td></tr>
+<tr class="memdesc:a514ce0d35d734eecc3ebbaff36b83a46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor - doesn't do much.  <a href="classHPC4WC_1_1Timer.html#a514ce0d35d734eecc3ebbaff36b83a46">More...</a><br /></td></tr>
 <tr class="separator:a514ce0d35d734eecc3ebbaff36b83a46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9987344bebd20e6a92f17d3a57e7b9d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1Timer.html#a9987344bebd20e6a92f17d3a57e7b9d2">restart</a> ()</td></tr>
+<tr class="memdesc:a9987344bebd20e6a92f17d3a57e7b9d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method resets the starting time. All the time Ellapsed function calls will use the reset start time for their time evaluations.  <a href="classHPC4WC_1_1Timer.html#a9987344bebd20e6a92f17d3a57e7b9d2">More...</a><br /></td></tr>
 <tr class="separator:a9987344bebd20e6a92f17d3a57e7b9d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa857269420901ee0c6439bda2e1f342b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1Timer.html#aa857269420901ee0c6439bda2e1f342b">timeElapsed</a> ()</td></tr>
+<tr class="memdesc:aa857269420901ee0c6439bda2e1f342b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the number of seconds that has ellapsed since the timer was reset.  <a href="classHPC4WC_1_1Timer.html#aa857269420901ee0c6439bda2e1f342b">More...</a><br /></td></tr>
 <tr class="separator:aa857269420901ee0c6439bda2e1f342b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a703443ae39250829d4be6129bed274f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1Timer.html#a703443ae39250829d4be6129bed274f0">wait</a> (double t)</td></tr>
 <tr class="separator:a703443ae39250829d4be6129bed274f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -103,7 +110,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a8adcce3b09734fe426ea212a72549d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This is a simple timer class, that can be reset at any point, and can be used to get the ellapsed time since the last reset. In windows, it will be implemented using the methods QueryPerformanceFrequency() and QueryPerformanceCounter(). In Linux, it can be implemented using the method gettimeofday(). The timeEllapsed method will return the time, in seconds but expressed as a double, since the timer was reset. </p>
+<div class="textblock"><p>Simple timer class. </p>
+<p>Source: <a href="https://github.com/cmm-21/a2/blob/main/src/libs/utils/include/utils/timer.h">https://github.com/cmm-21/a2/blob/main/src/libs/utils/include/utils/timer.h</a> and slightly changed.</p>
+<p>This is a simple timer class, that can be reset at any point, and can be used to get the ellapsed time since the last reset. In windows, it will be implemented using the methods QueryPerformanceFrequency() and QueryPerformanceCounter(). In Linux, it can be implemented using the method gettimeofday(). The timeEllapsed method will return the time, in seconds but expressed as a double, since the timer was reset. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad45ee1f5cd2bee2440592b2ea6d5c528"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad45ee1f5cd2bee2440592b2ea6d5c528">&#9670;&nbsp;</a></span>Timer()</h2>
@@ -119,6 +128,7 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Default constructor - resets the timer for the first time. </p>
 
 </div>
@@ -145,6 +155,7 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Default destructor - doesn't do much. </p>
 
 </div>
@@ -164,8 +175,8 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment"> This method resets the starting time. All the time Ellapsed function
-</pre><p> calls will use the reset start time for their time evaluations. </p>
+
+<p>This method resets the starting time. All the time Ellapsed function calls will use the reset start time for their time evaluations. </p>
 
 </div>
 </div>
@@ -183,8 +194,8 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment"> This method returns the number of seconds that has ellapsed since
-</pre><p> the timer was reset. </p>
+
+<p>This method returns the number of seconds that has ellapsed since the timer was reset. </p>
 
 </div>
 </div>
@@ -264,7 +275,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 7 2021 09:42:06 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Wed Jul 28 2021 11:19:17 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

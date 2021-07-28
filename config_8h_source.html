@@ -78,31 +78,34 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="config_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="config_8h.html#af2221a62806956be0b7a4ae019d91788">   10</a></span>&#160;<span class="preprocessor">#define USE_OPENMP_ON_K</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="config_8h.html#a0c6c724d35e12ef246c4f0a5182b45f5">   11</a></span>&#160;<span class="preprocessor">#define OPENMP_NUM_THREADS 2</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="field_8h.html">HPC4WC/field.h</a>&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceHPC4WC.html">HPC4WC</a> {</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classHPC4WC_1_1Config.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classHPC4WC_1_1Config.html">Config</a> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classHPC4WC_1_1Config.html#a5c79d52a4130a1899d40def1a0f09a32">   11</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="classHPC4WC_1_1Field.html#a7e88d7d5a04f79d054966bed07f6ee73">Field::idx_t</a> <a class="code" href="classHPC4WC_1_1Config.html#a5c79d52a4130a1899d40def1a0f09a32">OPENMP_NUM_THREADS</a>; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="config_8h.html#a30f7220803c3cc3210e5c041c3cd314e">   13</a></span>&#160;<span class="preprocessor">#define BLOCK_SIZE_I 15</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="config_8h.html#a843718de358c282adaf3778f06af3388">   14</a></span>&#160;<span class="preprocessor">#define BLOCK_SIZE_J 10</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classHPC4WC_1_1Config.html#abbe0c523f186473b2ac33b91d9725ee2">   13</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="classHPC4WC_1_1Field.html#a7e88d7d5a04f79d054966bed07f6ee73">Field::idx_t</a> <a class="code" href="classHPC4WC_1_1Config.html#abbe0c523f186473b2ac33b91d9725ee2">BLOCK_SIZE_I</a>; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classHPC4WC_1_1Config.html#a01e13e20b5a686d3c9c22297c4ac6873">   14</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="classHPC4WC_1_1Field.html#a7e88d7d5a04f79d054966bed07f6ee73">Field::idx_t</a> <a class="code" href="classHPC4WC_1_1Config.html#a01e13e20b5a686d3c9c22297c4ac6873">BLOCK_SIZE_J</a>; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//#define BLOCK_I</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//#define BLOCK_J</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// No follow helpers for the diffusion.cpp</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#if !defined(BLOCK_I) &amp;&amp; !defined(BLOCK_J)</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="config_8h.html#a652d83bfaa8116bae659b62ac6ccd1db">   21</a></span>&#160;<span class="preprocessor">#define BLOCK_NONE</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#if defined(BLOCK_I) &amp;&amp; defined(BLOCK_J)</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define BLOCK_I_AND_J</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">// undefine block_i and block_j to make cpp file easier (no if/else required)</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#undef BLOCK_I</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#undef BLOCK_J</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// End helpers for diffusion.cpp</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classHPC4WC_1_1Config.html#a0653db17ba1f1450e3e4f5f27a6c5b9e">   16</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classHPC4WC_1_1Config.html#a0653db17ba1f1450e3e4f5f27a6c5b9e">BLOCK_I</a>; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classHPC4WC_1_1Config.html#a70a5ca20ccedfb3b8288f2635abec8a1">   17</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classHPC4WC_1_1Config.html#a70a5ca20ccedfb3b8288f2635abec8a1">BLOCK_J</a>; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}  <span class="comment">// namespace HPC4WC</span></div>
+<div class="ttc" id="aclassHPC4WC_1_1Config_html"><div class="ttname"><a href="classHPC4WC_1_1Config.html">HPC4WC::Config</a></div><div class="ttdoc">Configuration class for blocking, OMP, MPI.</div><div class="ttdef"><b>Definition:</b> config.h:9</div></div>
+<div class="ttc" id="aclassHPC4WC_1_1Config_html_a01e13e20b5a686d3c9c22297c4ac6873"><div class="ttname"><a href="classHPC4WC_1_1Config.html#a01e13e20b5a686d3c9c22297c4ac6873">HPC4WC::Config::BLOCK_SIZE_J</a></div><div class="ttdeci">static Field::idx_t BLOCK_SIZE_J</div><div class="ttdoc">If BLOCK_J, how big the blocks should be in j direction, default 15.</div><div class="ttdef"><b>Definition:</b> config.h:14</div></div>
+<div class="ttc" id="aclassHPC4WC_1_1Config_html_a0653db17ba1f1450e3e4f5f27a6c5b9e"><div class="ttname"><a href="classHPC4WC_1_1Config.html#a0653db17ba1f1450e3e4f5f27a6c5b9e">HPC4WC::Config::BLOCK_I</a></div><div class="ttdeci">static bool BLOCK_I</div><div class="ttdoc">Whether to block in i direction (applied to the diffusion).</div><div class="ttdef"><b>Definition:</b> config.h:16</div></div>
+<div class="ttc" id="aclassHPC4WC_1_1Config_html_a5c79d52a4130a1899d40def1a0f09a32"><div class="ttname"><a href="classHPC4WC_1_1Config.html#a5c79d52a4130a1899d40def1a0f09a32">HPC4WC::Config::OPENMP_NUM_THREADS</a></div><div class="ttdeci">static Field::idx_t OPENMP_NUM_THREADS</div><div class="ttdoc">How many OpenMP threads the k loops should use, default 1.</div><div class="ttdef"><b>Definition:</b> config.h:11</div></div>
+<div class="ttc" id="aclassHPC4WC_1_1Config_html_a70a5ca20ccedfb3b8288f2635abec8a1"><div class="ttname"><a href="classHPC4WC_1_1Config.html#a70a5ca20ccedfb3b8288f2635abec8a1">HPC4WC::Config::BLOCK_J</a></div><div class="ttdeci">static bool BLOCK_J</div><div class="ttdoc">Whether to block in j direction (applied to the diffusion).</div><div class="ttdef"><b>Definition:</b> config.h:17</div></div>
+<div class="ttc" id="aclassHPC4WC_1_1Config_html_abbe0c523f186473b2ac33b91d9725ee2"><div class="ttname"><a href="classHPC4WC_1_1Config.html#abbe0c523f186473b2ac33b91d9725ee2">HPC4WC::Config::BLOCK_SIZE_I</a></div><div class="ttdeci">static Field::idx_t BLOCK_SIZE_I</div><div class="ttdoc">If BLOCK_I, how big the blocks should be in i direction, default 15.</div><div class="ttdef"><b>Definition:</b> config.h:13</div></div>
+<div class="ttc" id="aclassHPC4WC_1_1Field_html_a7e88d7d5a04f79d054966bed07f6ee73"><div class="ttname"><a href="classHPC4WC_1_1Field.html#a7e88d7d5a04f79d054966bed07f6ee73">HPC4WC::Field::idx_t</a></div><div class="ttdeci">long idx_t</div><div class="ttdoc">field index type</div><div class="ttdef"><b>Definition:</b> field.h:18</div></div>
+<div class="ttc" id="afield_8h_html"><div class="ttname"><a href="field_8h.html">field.h</a></div></div>
+<div class="ttc" id="anamespaceHPC4WC_html"><div class="ttname"><a href="namespaceHPC4WC.html">HPC4WC</a></div><div class="ttdef"><b>Definition:</b> autotuner.h:6</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 7 2021 09:42:06 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Wed Jul 28 2021 11:19:17 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
