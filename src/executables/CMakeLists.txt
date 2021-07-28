@@ -15,3 +15,8 @@ if(${MPI_FOUND})
     target_link_libraries(mpi_diffusion eigen HPC4WC)
     target_include_directories(mpi_diffusion PUBLIC HPC4WC)
 endif(${MPI_FOUND})
+
+add_executable(experiment_openmp_k experiment_openmp_k.cpp)
+target_link_libraries(experiment_openmp_k eigen HPC4WC)
+target_include_directories(experiment_openmp_k PUBLIC HPC4WC)
+add_dependencies(experiment_openmp_k diffusion2d)
