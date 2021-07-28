@@ -16,6 +16,7 @@ file(
 
 add_library(${PROJECT_NAME} STATIC ${SOURCE} ${HEADER})
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_include_directories(${PROJECT_NAME} PUBLIC ${FLAGS_SOURCE_DIR}/include)
 
 if(${OpenMP_FOUND})
     target_link_libraries(${PROJECT_NAME} PUBLIC OpenMP::OpenMP_CXX)

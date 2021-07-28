@@ -13,6 +13,11 @@
 namespace HPC4WC {
 
 /**
+ * @brief Simple timer class.
+ * 
+ * Source: https://github.com/cmm-21/a2/blob/main/src/libs/utils/include/utils/timer.h
+ * and slightly changed.
+ * 
  * This is a simple timer class, that can be reset at any point, and can be used
  * to get the ellapsed time since the last reset. In windows, it will be
  * implemented using the methods QueryPerformanceFrequency() and
@@ -35,24 +40,22 @@ private:
 
 public:
     /**
-            Default constructor - resets the timer for the first time.
+     * @brief Default constructor - resets the timer for the first time.
     */
     Timer();
 
     /**
-            Default destructor - doesn't do much.
+     * @brief Default destructor - doesn't do much.
     */
     ~Timer() {}
 
     /**
-            This method resets the starting time. All the time Ellapsed function
-       calls will use the reset start time for their time evaluations.
+     * @brief This method resets the starting time. All the time Ellapsed function calls will use the reset start time for their time evaluations.
     */
     void restart();
 
     /**
-            This method returns the number of seconds that has ellapsed since
-       the timer was reset.
+     * @brief This method returns the number of seconds that has ellapsed since the timer was reset.
     */
     double timeElapsed();
 
