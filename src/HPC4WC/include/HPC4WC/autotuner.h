@@ -15,11 +15,11 @@ namespace HPC4WC {
  * `./autotune_search --executable diffusion2d --exe-args="nk=10"`
  * 
  * EXECUTE MPI PROGRAMS where the search goes over the parameter "n" (passed to mpiexec)
- * The final call be will be something like "`mpiexec -n X diffusion2d --openmp-num-threads=2`", which means, that the OpenMP num threads argument will be used inside diffusion2d.
+ * The final call be will be something like "`mpiexec -n X mpi_diffusion --openmp-num-threads=2`", which means, that the OpenMP num threads argument will be used inside diffusion2d.
  * Windows:
- * `.\autotune_search.exe --executable mpiexec --exe-args="diffusion2d --openmp-num-threads=2"`
+ * `.\autotune_search.exe --executable mpiexec --exe-args="mpi_diffusion --openmp-num-threads=2"`
  * Linux:
- * `./autotune_search --executable mpiexec --exe-args="diffusion2d --openmp-num-threads=2"`
+ * `./autotune_search --executable mpiexec --exe-args="mpi_diffusion --openmp-num-threads=2"`
  */
 class AutoTuner {
 public:
