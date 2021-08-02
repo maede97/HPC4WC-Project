@@ -10,6 +10,6 @@ else
 	python -m venv hpc_env
 fi
 
-source hpc_env/bin/active
+source hpc_env/bin/activate
 pip install cmake==3.21.1
 
