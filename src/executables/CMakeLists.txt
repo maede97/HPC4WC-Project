@@ -20,3 +20,8 @@ add_executable(experiment_openmp_k experiment_openmp_k.cpp)
 target_link_libraries(experiment_openmp_k eigen HPC4WC)
 target_include_directories(experiment_openmp_k PUBLIC HPC4WC)
 add_dependencies(experiment_openmp_k diffusion2d)
+
+add_executable(block_i block_i.cpp)
+target_link_libraries(block_i eigen HPC4WC)
+target_include_directories(block_i PUBLIC HPC4WC)
+add_dependencies(block_i diffusion2d)
