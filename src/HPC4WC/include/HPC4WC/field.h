@@ -97,7 +97,7 @@ public:
      * 
      * @todo Unittest.
      */
-    void setFrom(const Field& f, Field::const_idx_t& offset_i = 0, Field::const_idx_t& offset_j = 0);
+    void setFrom(const Field& f, Field::const_idx_t& offset_i, Field::const_idx_t& offset_j);
 
     /**
      * @brief Update a field at k level from a given plane part.
