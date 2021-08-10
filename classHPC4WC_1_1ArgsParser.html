@@ -75,6 +75,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classHPC4WC_1_1ArgsParser-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">HPC4WC::ArgsParser Class Reference</div>  </div>
@@ -109,11 +110,33 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a86d1995d45be6ddf2928e86d69e0016e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1ArgsParser.html#a86d1995d45be6ddf2928e86d69e0016e">help</a> (std::ostream &amp;stream) const</td></tr>
 <tr class="memdesc:a86d1995d45be6ddf2928e86d69e0016e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the help menu to the stream provided.  <a href="classHPC4WC_1_1ArgsParser.html#a86d1995d45be6ddf2928e86d69e0016e">More...</a><br /></td></tr>
 <tr class="separator:a86d1995d45be6ddf2928e86d69e0016e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a5d8fff14891c18ca7cc4510e0ace9caf"><td class="memItemLeft" align="right" valign="top">flags::args&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1ArgsParser.html#a5d8fff14891c18ca7cc4510e0ace9caf">m_args</a></td></tr>
+<tr class="memdesc:a5d8fff14891c18ca7cc4510e0ace9caf"><td class="mdescLeft">&#160;</td><td class="mdescRight">internal argument parser  <a href="classHPC4WC_1_1ArgsParser.html#a5d8fff14891c18ca7cc4510e0ace9caf">More...</a><br /></td></tr>
+<tr class="separator:a5d8fff14891c18ca7cc4510e0ace9caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b038f2b375a9749fa4d00487edb8225"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1ArgsParser.html#a3b038f2b375a9749fa4d00487edb8225">m_argv_0</a></td></tr>
+<tr class="memdesc:a3b038f2b375a9749fa4d00487edb8225"><td class="mdescLeft">&#160;</td><td class="mdescRight">the name of the program, used inside <a class="el" href="classHPC4WC_1_1ArgsParser.html#a1dbd8b5a00324ffbb3dae48a15513080" title="Checker to see if an executable should show the help.">help()</a>  <a href="classHPC4WC_1_1ArgsParser.html#a3b038f2b375a9749fa4d00487edb8225">More...</a><br /></td></tr>
+<tr class="separator:a3b038f2b375a9749fa4d00487edb8225"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5cd62bbf5682f0133e2276230d28032"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::array&lt; std::string, 3 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1ArgsParser.html#ac5cd62bbf5682f0133e2276230d28032">m_arguments</a></td></tr>
+<tr class="memdesc:ac5cd62bbf5682f0133e2276230d28032"><td class="mdescLeft">&#160;</td><td class="mdescRight">user defined arguments  <a href="classHPC4WC_1_1ArgsParser.html#ac5cd62bbf5682f0133e2276230d28032">More...</a><br /></td></tr>
+<tr class="separator:ac5cd62bbf5682f0133e2276230d28032"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe998efbd81ca184f33540ee4a880c0f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::array&lt; std::string, 3 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1ArgsParser.html#abe998efbd81ca184f33540ee4a880c0f">m_config_entries</a></td></tr>
+<tr class="memdesc:abe998efbd81ca184f33540ee4a880c0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">config arguments (block_i etc.)  <a href="classHPC4WC_1_1ArgsParser.html#abe998efbd81ca184f33540ee4a880c0f">More...</a><br /></td></tr>
+<tr class="separator:abe998efbd81ca184f33540ee4a880c0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Simple Argument parser. </p>
 <p>Wrapper around <a href="https://github.com/sailormoon/flags">https://github.com/sailormoon/flags</a>.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Write about default arguments. (and config arguments) </dd></dl>
+<p>The default arguments are:</p><ul>
+<li>help: Shows the help screen.</li>
+<li>block-i: Whether to block in i direction (boolean)</li>
+<li>block-j: Whether to block in j direction (boolean)</li>
+<li>openmp-num-threads: How many threads should act in the k-direction.</li>
+<li>blocking-size-i: How big a block should be, i direction.</li>
+<li>blocking-size-j: How big a block should be, j direction. </li>
+</ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acd8f261143806faeae68770bfb7e11fd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acd8f261143806faeae68770bfb7e11fd">&#9670;&nbsp;</a></span>ArgsParser()</h2>
@@ -365,13 +388,110 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5d8fff14891c18ca7cc4510e0ace9caf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d8fff14891c18ca7cc4510e0ace9caf">&#9670;&nbsp;</a></span>m_args</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">flags::args HPC4WC::ArgsParser::m_args</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>internal argument parser </p>
+
+</div>
+</div>
+<a id="a3b038f2b375a9749fa4d00487edb8225"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b038f2b375a9749fa4d00487edb8225">&#9670;&nbsp;</a></span>m_argv_0</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* HPC4WC::ArgsParser::m_argv_0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the name of the program, used inside <a class="el" href="classHPC4WC_1_1ArgsParser.html#a1dbd8b5a00324ffbb3dae48a15513080" title="Checker to see if an executable should show the help.">help()</a> </p>
+
+</div>
+</div>
+<a id="ac5cd62bbf5682f0133e2276230d28032"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5cd62bbf5682f0133e2276230d28032">&#9670;&nbsp;</a></span>m_arguments</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::array&lt;std::string, 3&gt; &gt; HPC4WC::ArgsParser::m_arguments</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>user defined arguments </p>
+
+</div>
+</div>
+<a id="abe998efbd81ca184f33540ee4a880c0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe998efbd81ca184f33540ee4a880c0f">&#9670;&nbsp;</a></span>m_config_entries</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::array&lt;std::string, 3&gt; &gt; HPC4WC::ArgsParser::m_config_entries</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>config arguments (block_i etc.) </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="io_8h_source.html">io.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 10 2021 13:14:23 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Aug 10 2021 15:19:40 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

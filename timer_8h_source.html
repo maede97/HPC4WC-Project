@@ -77,7 +77,7 @@ $(function() {
 <div class="title">timer.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="timer_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<a href="timer_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="classHPC4WC_1_1Timer.html#a8a7d9f1119e82d603d7d3c6e53eef784">    1</a></span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifdef WIN32</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;windows.h&gt;</span></div>
@@ -95,12 +95,12 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#ifdef WIN32</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">// this is the start time of the timer, in milliseconds.</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> startTime;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> <a class="code" href="classHPC4WC_1_1Timer.html#a8a7d9f1119e82d603d7d3c6e53eef784">startTime</a>;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// this is the frequency of the performance counter</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> frequency;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">double</span> countsPerMillisecond;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">struct </span>timeval startTime;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">struct </span>timeval <a class="code" href="classHPC4WC_1_1Timer.html#a8a7d9f1119e82d603d7d3c6e53eef784">startTime</a>;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div>
@@ -146,6 +146,7 @@ $(function() {
 <div class="ttc" id="aclassHPC4WC_1_1Timer_html"><div class="ttname"><a href="classHPC4WC_1_1Timer.html">HPC4WC::Timer</a></div><div class="ttdoc">Simple timer class.</div><div class="ttdef"><b>Definition:</b> timer.h:28</div></div>
 <div class="ttc" id="aclassHPC4WC_1_1Timer_html_a514ce0d35d734eecc3ebbaff36b83a46"><div class="ttname"><a href="classHPC4WC_1_1Timer.html#a514ce0d35d734eecc3ebbaff36b83a46">HPC4WC::Timer::~Timer</a></div><div class="ttdeci">~Timer()</div><div class="ttdoc">Default destructor - doesn't do much.</div><div class="ttdef"><b>Definition:</b> timer.h:50</div></div>
 <div class="ttc" id="aclassHPC4WC_1_1Timer_html_a703443ae39250829d4be6129bed274f0"><div class="ttname"><a href="classHPC4WC_1_1Timer.html#a703443ae39250829d4be6129bed274f0">HPC4WC::Timer::wait</a></div><div class="ttdeci">void wait(double t)</div></div>
+<div class="ttc" id="aclassHPC4WC_1_1Timer_html_a8a7d9f1119e82d603d7d3c6e53eef784"><div class="ttname"><a href="classHPC4WC_1_1Timer.html#a8a7d9f1119e82d603d7d3c6e53eef784">HPC4WC::Timer::startTime</a></div><div class="ttdeci">struct timeval startTime</div><div class="ttdoc">start time of reset</div><div class="ttdef"><b>Definition:</b> timer.h:38</div></div>
 <div class="ttc" id="aclassHPC4WC_1_1Timer_html_a8adcce3b09734fe426ea212a72549d55"><div class="ttname"><a href="classHPC4WC_1_1Timer.html#a8adcce3b09734fe426ea212a72549d55">HPC4WC::Timer::timeval_subtract</a></div><div class="ttdeci">int timeval_subtract(struct timeval *result, struct timeval *x, struct timeval *y)</div><div class="ttdef"><b>Definition:</b> timer.h:74</div></div>
 <div class="ttc" id="aclassHPC4WC_1_1Timer_html_a9987344bebd20e6a92f17d3a57e7b9d2"><div class="ttname"><a href="classHPC4WC_1_1Timer.html#a9987344bebd20e6a92f17d3a57e7b9d2">HPC4WC::Timer::restart</a></div><div class="ttdeci">void restart()</div><div class="ttdoc">This method resets the starting time. All the time Ellapsed function calls will use the reset start t...</div></div>
 <div class="ttc" id="aclassHPC4WC_1_1Timer_html_aa857269420901ee0c6439bda2e1f342b"><div class="ttname"><a href="classHPC4WC_1_1Timer.html#aa857269420901ee0c6439bda2e1f342b">HPC4WC::Timer::timeElapsed</a></div><div class="ttdeci">double timeElapsed()</div><div class="ttdoc">This method returns the number of seconds that has ellapsed since the timer was reset.</div></div>
@@ -154,7 +155,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 10 2021 13:14:23 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Aug 10 2021 15:19:40 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

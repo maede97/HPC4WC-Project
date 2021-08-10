@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['scatter_54',['scatter',['../classHPC4WC_1_1Partitioner.html#ae614e8416a2c39e78cf702660954fa9e',1,'HPC4WC::Partitioner']]],
-  ['search_55',['search',['../classHPC4WC_1_1AutoTuner.html#a77041692be5a11f6a63e19a0ce3e7fdd',1,'HPC4WC::AutoTuner']]],
-  ['setfrom_56',['setFrom',['../classHPC4WC_1_1Field.html#a185ab1eadd84b630abb8b236f6db5af1',1,'HPC4WC::Field::setFrom(const Field &amp;f)'],['../classHPC4WC_1_1Field.html#acd20489468e20f59f15d139c7458690d',1,'HPC4WC::Field::setFrom(const Eigen::MatrixXd &amp;ij_plane_part, const_idx_t &amp;i, const_idx_t &amp;j, const_idx_t &amp;k)']]],
-  ['simplediffusion_57',['SimpleDiffusion',['../classHPC4WC_1_1SimpleDiffusion.html',1,'HPC4WC']]]
+  ['partitioner_69',['Partitioner',['../classHPC4WC_1_1Partitioner.html',1,'HPC4WC::Partitioner'],['../classHPC4WC_1_1Partitioner.html#a716e6286ed8d70c28a47d48cd78b53d6',1,'HPC4WC::Partitioner::Partitioner()']]],
+  ['partitioner_2eh_70',['partitioner.h',['../partitioner_8h.html',1,'']]],
+  ['periodicboundaryconditions_71',['PeriodicBoundaryConditions',['../classHPC4WC_1_1PeriodicBoundaryConditions.html',1,'HPC4WC']]],
+  ['periodicity_72',['PERIODICITY',['../classHPC4WC_1_1PeriodicBoundaryConditions.html#abedcf148fd5bb1b8c9e40fe5ea122ba4',1,'HPC4WC::PeriodicBoundaryConditions']]]
 ];

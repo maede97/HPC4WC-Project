@@ -92,16 +92,16 @@ Static Public Attributes</h2></td></tr>
 <tr class="memdesc:a5c79d52a4130a1899d40def1a0f09a32"><td class="mdescLeft">&#160;</td><td class="mdescRight">How many OpenMP threads the k loops should use, default 1.  <a href="classHPC4WC_1_1Config.html#a5c79d52a4130a1899d40def1a0f09a32">More...</a><br /></td></tr>
 <tr class="separator:a5c79d52a4130a1899d40def1a0f09a32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbe0c523f186473b2ac33b91d9725ee2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classHPC4WC_1_1Field.html#a7e88d7d5a04f79d054966bed07f6ee73">Field::idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1Config.html#abbe0c523f186473b2ac33b91d9725ee2">BLOCK_SIZE_I</a></td></tr>
-<tr class="memdesc:abbe0c523f186473b2ac33b91d9725ee2"><td class="mdescLeft">&#160;</td><td class="mdescRight">If BLOCK_I, how big the blocks should be in i direction, default 15.  <a href="classHPC4WC_1_1Config.html#abbe0c523f186473b2ac33b91d9725ee2">More...</a><br /></td></tr>
+<tr class="memdesc:abbe0c523f186473b2ac33b91d9725ee2"><td class="mdescLeft">&#160;</td><td class="mdescRight">If BLOCK_I, how big the blocks should be in i direction, default 8.  <a href="classHPC4WC_1_1Config.html#abbe0c523f186473b2ac33b91d9725ee2">More...</a><br /></td></tr>
 <tr class="separator:abbe0c523f186473b2ac33b91d9725ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01e13e20b5a686d3c9c22297c4ac6873"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classHPC4WC_1_1Field.html#a7e88d7d5a04f79d054966bed07f6ee73">Field::idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1Config.html#a01e13e20b5a686d3c9c22297c4ac6873">BLOCK_SIZE_J</a></td></tr>
-<tr class="memdesc:a01e13e20b5a686d3c9c22297c4ac6873"><td class="mdescLeft">&#160;</td><td class="mdescRight">If BLOCK_J, how big the blocks should be in j direction, default 15.  <a href="classHPC4WC_1_1Config.html#a01e13e20b5a686d3c9c22297c4ac6873">More...</a><br /></td></tr>
+<tr class="memdesc:a01e13e20b5a686d3c9c22297c4ac6873"><td class="mdescLeft">&#160;</td><td class="mdescRight">If BLOCK_J, how big the blocks should be in j direction, default 8.  <a href="classHPC4WC_1_1Config.html#a01e13e20b5a686d3c9c22297c4ac6873">More...</a><br /></td></tr>
 <tr class="separator:a01e13e20b5a686d3c9c22297c4ac6873"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0653db17ba1f1450e3e4f5f27a6c5b9e"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1Config.html#a0653db17ba1f1450e3e4f5f27a6c5b9e">BLOCK_I</a></td></tr>
-<tr class="memdesc:a0653db17ba1f1450e3e4f5f27a6c5b9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether to block in i direction (applied to the diffusion).  <a href="classHPC4WC_1_1Config.html#a0653db17ba1f1450e3e4f5f27a6c5b9e">More...</a><br /></td></tr>
+<tr class="memdesc:a0653db17ba1f1450e3e4f5f27a6c5b9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether to block in i direction (applied to the diffusion), default true.  <a href="classHPC4WC_1_1Config.html#a0653db17ba1f1450e3e4f5f27a6c5b9e">More...</a><br /></td></tr>
 <tr class="separator:a0653db17ba1f1450e3e4f5f27a6c5b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70a5ca20ccedfb3b8288f2635abec8a1"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1Config.html#a70a5ca20ccedfb3b8288f2635abec8a1">BLOCK_J</a></td></tr>
-<tr class="memdesc:a70a5ca20ccedfb3b8288f2635abec8a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether to block in j direction (applied to the diffusion).  <a href="classHPC4WC_1_1Config.html#a70a5ca20ccedfb3b8288f2635abec8a1">More...</a><br /></td></tr>
+<tr class="memdesc:a70a5ca20ccedfb3b8288f2635abec8a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether to block in j direction (applied to the diffusion), default true.  <a href="classHPC4WC_1_1Config.html#a70a5ca20ccedfb3b8288f2635abec8a1">More...</a><br /></td></tr>
 <tr class="separator:a70a5ca20ccedfb3b8288f2635abec8a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -151,7 +151,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>If BLOCK_I, how big the blocks should be in i direction, default 15. </p>
+<p>If BLOCK_I, how big the blocks should be in i direction, default 8. </p>
 
 </div>
 </div>
@@ -175,7 +175,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>If BLOCK_J, how big the blocks should be in j direction, default 15. </p>
+<p>If BLOCK_J, how big the blocks should be in j direction, default 8. </p>
 
 </div>
 </div>
@@ -199,7 +199,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Whether to block in i direction (applied to the diffusion). </p>
+<p>Whether to block in i direction (applied to the diffusion), default true. </p>
 
 </div>
 </div>
@@ -223,7 +223,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Whether to block in j direction (applied to the diffusion). </p>
+<p>Whether to block in j direction (applied to the diffusion), default true. </p>
 
 </div>
 </div>
@@ -233,7 +233,7 @@ Static Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 10 2021 13:14:23 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Aug 10 2021 15:19:40 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

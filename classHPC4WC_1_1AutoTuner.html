@@ -75,6 +75,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classHPC4WC_1_1AutoTuner-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">HPC4WC::AutoTuner Class Reference</div>  </div>
@@ -102,6 +104,29 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a77041692be5a11f6a63e19a0ce3e7fdd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1AutoTuner.html#a77041692be5a11f6a63e19a0ce3e7fdd">search</a> () const</td></tr>
 <tr class="memdesc:a77041692be5a11f6a63e19a0ce3e7fdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search over all parameters.  <a href="classHPC4WC_1_1AutoTuner.html#a77041692be5a11f6a63e19a0ce3e7fdd">More...</a><br /></td></tr>
 <tr class="separator:a77041692be5a11f6a63e19a0ce3e7fdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a39662e26e7874a9ae7bf5ab487e6c4e4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1AutoTuner.html#a39662e26e7874a9ae7bf5ab487e6c4e4">open_with_arguments</a> (const std::string &amp;arguments) const</td></tr>
+<tr class="memdesc:a39662e26e7874a9ae7bf5ab487e6c4e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open the executable with given arguments.  <a href="classHPC4WC_1_1AutoTuner.html#a39662e26e7874a9ae7bf5ab487e6c4e4">More...</a><br /></td></tr>
+<tr class="separator:a39662e26e7874a9ae7bf5ab487e6c4e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a3e32065fbcd1ad265aa4185eb279768d"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1AutoTuner.html#a3e32065fbcd1ad265aa4185eb279768d">m_exe_name</a></td></tr>
+<tr class="memdesc:a3e32065fbcd1ad265aa4185eb279768d"><td class="mdescLeft">&#160;</td><td class="mdescRight">the executable to be run  <a href="classHPC4WC_1_1AutoTuner.html#a3e32065fbcd1ad265aa4185eb279768d">More...</a><br /></td></tr>
+<tr class="separator:a3e32065fbcd1ad265aa4185eb279768d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2f3c79e559ad38f99ed5ba6276d45bf"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1AutoTuner.html#ad2f3c79e559ad38f99ed5ba6276d45bf">m_exe_args</a></td></tr>
+<tr class="memdesc:ad2f3c79e559ad38f99ed5ba6276d45bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">the additional arguments passed to the executable  <a href="classHPC4WC_1_1AutoTuner.html#ad2f3c79e559ad38f99ed5ba6276d45bf">More...</a><br /></td></tr>
+<tr class="separator:ad2f3c79e559ad38f99ed5ba6276d45bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1db1c4d2590cf6e8d8c8d250e53d35e"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1AutoTuner.html#ac1db1c4d2590cf6e8d8c8d250e53d35e">m_max_wait_millseconds</a> = 30000</td></tr>
+<tr class="memdesc:ac1db1c4d2590cf6e8d8c8d250e53d35e"><td class="mdescLeft">&#160;</td><td class="mdescRight">max wait time on windows, 30s  <a href="classHPC4WC_1_1AutoTuner.html#ac1db1c4d2590cf6e8d8c8d250e53d35e">More...</a><br /></td></tr>
+<tr class="separator:ac1db1c4d2590cf6e8d8c8d250e53d35e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac329ec74b313c49cf9c70744ff3a4610"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classHPC4WC_1_1Field.html#ad8cd70e998b11a747ee0ed0c1b879b2a">Field::const_idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1AutoTuner.html#ac329ec74b313c49cf9c70744ff3a4610">m_iterations</a></td></tr>
+<tr class="memdesc:ac329ec74b313c49cf9c70744ff3a4610"><td class="mdescLeft">&#160;</td><td class="mdescRight">how many times a certain set of parameters should be tested.  <a href="classHPC4WC_1_1AutoTuner.html#ac329ec74b313c49cf9c70744ff3a4610">More...</a><br /></td></tr>
+<tr class="separator:ac329ec74b313c49cf9c70744ff3a4610"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e225879a78d31e7047b00feaeaf9fec"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; const char *, std::vector&lt; <a class="el" href="classHPC4WC_1_1Field.html#a7e88d7d5a04f79d054966bed07f6ee73">Field::idx_t</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1AutoTuner.html#a2e225879a78d31e7047b00feaeaf9fec">m_arguments</a></td></tr>
+<tr class="separator:a2e225879a78d31e7047b00feaeaf9fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Examples (with executables/autotune_search.cpp):</p>
@@ -306,13 +331,168 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a39662e26e7874a9ae7bf5ab487e6c4e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39662e26e7874a9ae7bf5ab487e6c4e4">&#9670;&nbsp;</a></span>open_with_arguments()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double HPC4WC::AutoTuner::open_with_arguments </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>arguments</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Open the executable with given arguments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">arguments</td><td>The arguments to pass to the executable. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The runtime in seconds. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3e32065fbcd1ad265aa4185eb279768d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e32065fbcd1ad265aa4185eb279768d">&#9670;&nbsp;</a></span>m_exe_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* HPC4WC::AutoTuner::m_exe_name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the executable to be run </p>
+
+</div>
+</div>
+<a id="ad2f3c79e559ad38f99ed5ba6276d45bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2f3c79e559ad38f99ed5ba6276d45bf">&#9670;&nbsp;</a></span>m_exe_args</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* HPC4WC::AutoTuner::m_exe_args</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the additional arguments passed to the executable </p>
+
+</div>
+</div>
+<a id="ac1db1c4d2590cf6e8d8c8d250e53d35e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1db1c4d2590cf6e8d8c8d250e53d35e">&#9670;&nbsp;</a></span>m_max_wait_millseconds</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned HPC4WC::AutoTuner::m_max_wait_millseconds = 30000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>max wait time on windows, 30s </p>
+
+</div>
+</div>
+<a id="ac329ec74b313c49cf9c70744ff3a4610"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac329ec74b313c49cf9c70744ff3a4610">&#9670;&nbsp;</a></span>m_iterations</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classHPC4WC_1_1Field.html#ad8cd70e998b11a747ee0ed0c1b879b2a">Field::const_idx_t</a> HPC4WC::AutoTuner::m_iterations</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>how many times a certain set of parameters should be tested. </p>
+
+</div>
+</div>
+<a id="a2e225879a78d31e7047b00feaeaf9fec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e225879a78d31e7047b00feaeaf9fec">&#9670;&nbsp;</a></span>m_arguments</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::pair&lt;const char*, std::vector&lt;<a class="el" href="classHPC4WC_1_1Field.html#a7e88d7d5a04f79d054966bed07f6ee73">Field::idx_t</a>&gt; &gt; &gt; HPC4WC::AutoTuner::m_arguments</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Argument with corresponding possibilities of values (currently, only integer values are allowed) </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="autotuner_8h_source.html">autotuner.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 10 2021 13:14:23 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Aug 10 2021 15:19:40 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

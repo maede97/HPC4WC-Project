@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['timeelapsed_58',['timeElapsed',['../classHPC4WC_1_1Timer.html#aa857269420901ee0c6439bda2e1f342b',1,'HPC4WC::Timer']]],
-  ['timer_59',['Timer',['../classHPC4WC_1_1Timer.html',1,'HPC4WC::Timer'],['../classHPC4WC_1_1Timer.html#ad45ee1f5cd2bee2440592b2ea6d5c528',1,'HPC4WC::Timer::Timer()']]],
-  ['timer_2eh_60',['timer.h',['../timer_8h.html',1,'']]],
-  ['timeval_5fsubtract_61',['timeval_subtract',['../classHPC4WC_1_1Timer.html#a8adcce3b09734fe426ea212a72549d55',1,'HPC4WC::Timer']]],
-  ['todo_20list_62',['Todo List',['../todo.html',1,'']]]
+  ['rank_73',['rank',['../classHPC4WC_1_1Partitioner.html#aa5cb3e1e229f569f701d971752544f3e',1,'HPC4WC::Partitioner']]],
+  ['readme_2emd_74',['README.md',['../README_8md.html',1,'']]],
+  ['restart_75',['restart',['../classHPC4WC_1_1Timer.html#a9987344bebd20e6a92f17d3a57e7b9d2',1,'HPC4WC::Timer']]]
 ];

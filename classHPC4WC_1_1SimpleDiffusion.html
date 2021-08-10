@@ -75,21 +75,36 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="classHPC4WC_1_1SimpleDiffusion-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">HPC4WC::SimpleDiffusion Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>Apply the diffusion equation to a field.  
+ <a href="classHPC4WC_1_1SimpleDiffusion.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="diffusion_8h_source.html">diffusion.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aee867d9b3611a1fae98caaf74ffb2a21"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1SimpleDiffusion.html#aee867d9b3611a1fae98caaf74ffb2a21">apply</a> (<a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;f, const double &amp;alpha=1e-3)</td></tr>
+<tr class="memdesc:aee867d9b3611a1fae98caaf74ffb2a21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the equation.  <a href="classHPC4WC_1_1SimpleDiffusion.html#aee867d9b3611a1fae98caaf74ffb2a21">More...</a><br /></td></tr>
 <tr class="separator:aee867d9b3611a1fae98caaf74ffb2a21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a984ae01a571424c5a57ff2f654cbbe8f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1SimpleDiffusion.html#a984ae01a571424c5a57ff2f654cbbe8f">laplacian</a> (const <a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;f_in, <a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;f_out, <a class="el" href="classHPC4WC_1_1Field.html#ad8cd70e998b11a747ee0ed0c1b879b2a">Field::const_idx_t</a> &amp;offset_i=0, <a class="el" href="classHPC4WC_1_1Field.html#ad8cd70e998b11a747ee0ed0c1b879b2a">Field::const_idx_t</a> &amp;offset_j=0)</td></tr>
+<tr class="memdesc:a984ae01a571424c5a57ff2f654cbbe8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a laplacian operator onto a field.  <a href="classHPC4WC_1_1SimpleDiffusion.html#a984ae01a571424c5a57ff2f654cbbe8f">More...</a><br /></td></tr>
+<tr class="separator:a984ae01a571424c5a57ff2f654cbbe8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69b107294caf7e94627f7db9d6c4b9c6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHPC4WC_1_1SimpleDiffusion.html#a69b107294caf7e94627f7db9d6c4b9c6">time_integration</a> (const <a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;f_in, <a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;f_out, const double &amp;alpha)</td></tr>
+<tr class="memdesc:a69b107294caf7e94627f7db9d6c4b9c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform time integration on a field.  <a href="classHPC4WC_1_1SimpleDiffusion.html#a69b107294caf7e94627f7db9d6c4b9c6">More...</a><br /></td></tr>
+<tr class="separator:a69b107294caf7e94627f7db9d6c4b9c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Document and unittest. </dd></dl>
+<div class="textblock"><p>Apply the diffusion equation to a field. </p>
+<p>Applies the equation \( \frac {\partial f}{\partial t}}=\alpha\nabla ^{2}f \). It uses a simplified approach but can benefit from blocking. </p><dl class="section attention"><dt>Attention</dt><dd>Applies the diffusion equation only to indices i and j (not k). </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aee867d9b3611a1fae98caaf74ffb2a21"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aee867d9b3611a1fae98caaf74ffb2a21">&#9670;&nbsp;</a></span>apply()</h2>
@@ -125,6 +140,140 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Apply the equation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">f</td><td>The field to apply the diffusion equation to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">alpha</td><td>The coefficient in front of the nabla operator. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a984ae01a571424c5a57ff2f654cbbe8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a984ae01a571424c5a57ff2f654cbbe8f">&#9670;&nbsp;</a></span>laplacian()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void HPC4WC::SimpleDiffusion::laplacian </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;&#160;</td>
+          <td class="paramname"><em>f_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;&#160;</td>
+          <td class="paramname"><em>f_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classHPC4WC_1_1Field.html#ad8cd70e998b11a747ee0ed0c1b879b2a">Field::const_idx_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>offset_i</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classHPC4WC_1_1Field.html#ad8cd70e998b11a747ee0ed0c1b879b2a">Field::const_idx_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>offset_j</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applies a laplacian operator onto a field. </p>
+<p>The laplacian is only applied with a size given by f_out. Furthermore, the offset_i and offset_j values control the starting point, meaning 0,0 will start at the top left block of f_in (without halo points).</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if the offsets are wrong or f_out too big. </td></tr>
+    <tr><td class="paramname">std::logical_error</td><td>if the two fields do not match in k / num halo points.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">f_in</td><td>The field to perform the laplacian operator on. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">f_out</td><td>The field where to write the laplacian of f_in. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">offset_i</td><td>The offset in f_in in i direction. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">offset_j</td><td>The offset in f_in in j direction. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a69b107294caf7e94627f7db9d6c4b9c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69b107294caf7e94627f7db9d6c4b9c6">&#9670;&nbsp;</a></span>time_integration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void HPC4WC::SimpleDiffusion::time_integration </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;&#160;</td>
+          <td class="paramname"><em>f_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classHPC4WC_1_1Field.html">Field</a> &amp;&#160;</td>
+          <td class="paramname"><em>f_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>alpha</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Perform time integration on a field. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td>if the fields do not match.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">f_in</td><td>The field to integrate over time. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">f_out</td><td>The output field. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">alpha</td><td>The alpha value of the integration. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -133,7 +282,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 10 2021 13:14:23 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Aug 10 2021 15:19:40 for ATWCS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
