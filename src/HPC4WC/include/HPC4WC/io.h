@@ -33,7 +33,13 @@ public:
  * 
  * Wrapper around https://github.com/sailormoon/flags.
  * 
- * @todo Write about default arguments. (and config arguments)
+ * The default arguments are:
+ * - help: Shows the help screen.
+ * - block-i: Whether to block in i direction (boolean)
+ * - block-j: Whether to block in j direction (boolean)
+ * - openmp-num-threads: How many threads should act in the k-direction.
+ * - blocking-size-i: How big a block should be, i direction.
+ * - blocking-size-j: How big a block should be, j direction.
  */
 class ArgsParser {
 public:
