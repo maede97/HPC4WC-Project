@@ -84,6 +84,23 @@ public:
     void setFrom(const Field& f);
 
     /**
+     * @brief Set part of the field from another, given an offset.
+     * 
+     * This routine skips halopoints, meaning offset 0/0 places the data in the actual data field, not the halo.
+     * Internally relies on Field::setFrom(const Eigen::MatrixXd,const_idx_t&, const_idx_t&, const_idx_t&)
+     * and therefore might throw more errors if the offset's are off.
+     * 
+     * @throws std::logic_error If the k dimension does not match.
+     * 
+     * @param[in] f The field to get the data from.
+     * @param[in] offset_i The offset in i direction.
+     * @param[in] offset_j The offset in j direction.
+     * 
+     * @todo Unittest.
+     */
+    void setFrom(const Field& f, Field::const_idx_t& offset_i = 0, Field::const_idx_t& offset_j = 0);
+
+    /**
      * @brief Update a field at k level from a given plane part.
      * @param[in] ij_plane_part The other plane part which is copied over.
      * @param[in] i The first index to put the part in this field.
@@ -126,6 +143,8 @@ public:
      * @brief Check two fields for equality.
      * @param[in] other The other field to compare against.
      * @return True if the two fields match.
+     * 
+     * @attention This does not any runtime checks on the dimensions, simply return false if they do not match.
      * @todo unittest.
      */
     bool operator==(const Field& other);
@@ -133,7 +152,9 @@ public:
     /**
      * @brief Check two fields for inequality.
      * @param[in] other The other field to compare against.
-     * @return True if the two fields do not match.
+     * @return True if the two fields do not match. 
+     * 
+     * @attention This does not any runtime checks on the dimensions, simply return false if they do not match.
      * @todo unittest.
      */
     bool operator!=(const Field& other);

@@ -41,6 +41,15 @@ void Field::setFrom(const Field& other) {
     }
 }
 
+void Field::setFrom(const Field& other, Field::const_idx_t& offset_i, Field::const_idx_t& offset_j) {
+    if (m_nk != other.m_nk) {
+        throw std::logic_error("Field::setFrom(other, offset_i, offset_j): k-dimension does not match.");
+    }
+    for (Field::idx_t k = 0; k < m_nk; k++) {
+        setFrom(other.m_data[k].block(m_num_halo, m_num_halo, other.m_ni, other.m_nj), offset_i + m_num_halo, offset_j + m_num_halo, k);
+    }
+}
+
 void Field::setFrom(const Eigen::MatrixXd& ij_plane_part, const_idx_t& i, const_idx_t& j, const_idx_t& k) {
     if (k < 0 || k >= m_data.size() || i < 0 || i + ij_plane_part.rows() >= m_data[k].rows() || j < 0 || j + ij_plane_part.cols() >= m_data[k].cols()) {
         throw std::out_of_range("Field::setFrom(ij_plane_part, i, j, k): Out of bounds.");
@@ -60,6 +69,7 @@ bool Field::operator==(const Field& other) {
 }
 
 bool Field::operator!=(const Field& other) {
+    // rely on the other operator implemented.
     return !(*this == other);
 }
 

@@ -3,11 +3,22 @@
 
 namespace HPC4WC {
 
-// apply laplacian to f_in and write into f_out.
-// start at (offset_i, offset_j) (without halo points there!)
-void laplacian(const Field& f_in, Field& f_out, Field::const_idx_t& offset_i = 0, Field::const_idx_t& offset_j = 0) {
-    // TODO: perform blocking based on f_out size?
-    // TODO: size checks on the fields
+void SimpleDiffusion::laplacian(const Field& f_in, Field& f_out, Field::const_idx_t& offset_i, Field::const_idx_t& offset_j) {
+    if(f_out.num_k() != f_in.num_k() || f_out.num_halo() != f_in.num_halo()) {
+        throw std::logic_error("SimpleDiffusion::laplacian: in/out fields do not have the same number of k/halopoints.");
+    }
+    if(f_out.num_i() >= f_in.num_i() || f_out.num_j() >= f_in.num_j()) {
+        throw std::out_of_range("SimpleDiffusion::laplacian: The output field is too big.");
+    }
+
+    // Check for offset out of bounds
+    if(f_out.num_i() + offset_i > f_in.num_i() + f_in.num_halo() || f_out.num_j() + offset_j > f_in.num_j() + f_in.num_halo()) {
+        throw std::out_of_range("SimpleDiffusion::laplacian: Offset is out of range.");
+    }
+    if (offset_i < 0 && -offset_i < f_in.num_halo() - 1 || offset_j < 0 && -offset_j < f_in.num_halo() - 1) {
+        throw std::out_of_range("SimpleDiffusion::laplacian: Offset is out of range (too negative).");
+    }
+
     for (Field::idx_t k = 0; k < f_in.num_k(); k++) {
         for (Field::idx_t i_out = f_out.num_halo(); i_out < f_out.num_i() + f_out.num_halo(); i_out++) {
             for (Field::idx_t j_out = f_out.num_halo(); j_out < f_out.num_j() + f_out.num_halo(); j_out++) {
@@ -19,8 +30,10 @@ void laplacian(const Field& f_in, Field& f_out, Field::const_idx_t& offset_i = 0
     }
 }
 
-void time_integration(const Field& f_in, Field& f_out, const double& alpha) {
-    // TODO: check field size
+void SimpleDiffusion::time_integration(const Field& f_in, Field& f_out, const double& alpha) {
+    if (f_in.num_halo() != f_out.num_halo() || f_in.num_i() != f_out.num_i() || f_in.num_j() != f_out.num_j() || f_in.num_k() != f_out.num_k()) {
+        throw std::logic_error("Field::setFrom(other): Sizes do not match.");
+    }
     for (Field::idx_t k = 0; k < f_in.num_k(); k++) {
         for (Field::idx_t i_out = f_out.num_halo(); i_out < f_out.num_i() + f_out.num_halo(); i_out++) {
             for (Field::idx_t j_out = f_out.num_halo(); j_out < f_out.num_j() + f_out.num_halo(); j_out++) {
@@ -30,19 +43,7 @@ void time_integration(const Field& f_in, Field& f_out, const double& alpha) {
     }
 }
 
-void copy_to(const Field& f_in, Field& f_out, Field::const_idx_t& offset_i = 0, Field::const_idx_t& offset_j = 0) {
-    for (Field::idx_t k = 0; k < f_in.num_k(); k++) {
-        for (Field::idx_t i = f_out.num_halo(); i < f_in.num_i() + f_in.num_halo(); i++) {
-            for (Field::idx_t j = f_out.num_halo(); j < f_in.num_j() + f_in.num_halo(); j++) {
-                f_out(i + offset_i, j + offset_j, k) = f_in(i, j, k);
-            }
-        }
-    }
-}
-
 void SimpleDiffusion::apply(Field& f, const double& alpha) {
-    //TODO: must check that block_size divides f size!
-    // otherwise error.
     Field::idx_t block_i, block_j;
 
     if (Config::BLOCK_I && Config::BLOCK_J) {
@@ -59,6 +60,10 @@ void SimpleDiffusion::apply(Field& f, const double& alpha) {
         block_j = f.num_j();
     }
 
+    if(f.num_i() % block_i != 0 || f.num_j() % block_j != 0) {
+        throw std::logic_error("Block size does not match the field given.");
+    }
+
     Field tmp1 = Field(block_i + 2, block_j + 2, f.num_k(), f.num_halo());
     Field tmp2 = Field(block_i, block_j, f.num_k(), f.num_halo());
 
@@ -69,11 +74,12 @@ void SimpleDiffusion::apply(Field& f, const double& alpha) {
             laplacian(f, tmp1, block_i_start - 1, block_j_start - 1);
             laplacian(tmp1, tmp2, 1, 1);
 
-            copy_to(tmp2, tmp3, block_i_start, block_j_start);
+            // copy data over to a big tmp field, where we "intermediate" store the results.
+            tmp3.setFrom(tmp2, block_i_start, block_j_start);
         }
     }
 
-    // erst ganz am schluss
+    // finally do time integration from the big tmp field back to f.
     time_integration(tmp3, f, alpha);
 }
 
