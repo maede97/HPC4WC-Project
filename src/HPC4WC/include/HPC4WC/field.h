@@ -8,7 +8,6 @@ namespace HPC4WC {
 
 /**
  * @brief A field. Holds data.
- * @todo Set storage order based on config!
  * 
  * Indices start at 0 and go up to nx + 2 * num_halo,
  * this means, the actual field starts at (num_halo, num_halo)

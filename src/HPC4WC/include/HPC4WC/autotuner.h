@@ -46,7 +46,9 @@ public:
     void add_range_argument(const char* argument, Field::const_idx_t& lower_bound, Field::const_idx_t& upper_bound, Field::const_idx_t& step_size = 1);
 
     /**
-     * @todo document.
+     * @brief Add a variable to the search based on a vector of available values.
+     * @param[in] argument The argument to test.
+     * @param[in] values A vector of values which the argument can take.
      */
     void add_range_argument(const char* argument, const std::vector<Field::idx_t>& values);
     /**
