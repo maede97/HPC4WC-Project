@@ -15,8 +15,6 @@ namespace HPC4WC {
  * Uses MPI to exchange halo data.
  * 
  * @todo Check all MPI errors
- * 
- * @todo potentially replace Recv/Send with non-blocking (for scatter/gather)
  */
 class Partitioner {
 public:
