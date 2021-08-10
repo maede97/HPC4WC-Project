@@ -48,4 +48,19 @@ void Field::setFrom(const Eigen::MatrixXd& ij_plane_part, const_idx_t& i, const_
     m_data[k].block(i, j, ij_plane_part.rows(), ij_plane_part.cols()) = ij_plane_part;
 }
 
+bool Field::operator==(const Field& other) {
+    if (m_nk != other.m_nk || m_ni != other.m_ni || m_nj != other.m_nj || m_num_halo != other.m_num_halo)
+        return false;
+
+    for (idx_t k = 0; k < m_nk; k++) {
+        if ((m_data[k] - other.m_data[k]).squaredNorm() > 1e-3)
+            return false;
+    }
+    return true;
+}
+
+bool Field::operator!=(const Field& other) {
+    return !(*this == other);
+}
+
 }  // namespace HPC4WC

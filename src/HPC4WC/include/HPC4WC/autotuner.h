@@ -44,6 +44,11 @@ public:
      * @attention The upper bound is inclusive!
      */
     void add_range_argument(const char* argument, Field::const_idx_t& lower_bound, Field::const_idx_t& upper_bound, Field::const_idx_t& step_size = 1);
+
+    /**
+     * @todo document.
+     */
+    void add_range_argument(const char* argument, const std::vector<Field::idx_t>& values);
     /**
      * @brief Helper to add a bool variable.
      * 

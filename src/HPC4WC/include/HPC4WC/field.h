@@ -122,6 +122,22 @@ public:
         return m_num_halo;
     }
 
+    /**
+     * @brief Check two fields for equality.
+     * @param[in] other The other field to compare against.
+     * @return True if the two fields match.
+     * @todo unittest.
+     */
+    bool operator==(const Field& other);
+    
+    /**
+     * @brief Check two fields for inequality.
+     * @param[in] other The other field to compare against.
+     * @return True if the two fields do not match.
+     * @todo unittest.
+     */
+    bool operator!=(const Field& other);
+
 private:
     idx_t m_ni;
     idx_t m_nj;

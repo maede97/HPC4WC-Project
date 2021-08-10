@@ -148,6 +148,13 @@ void AutoTuner::add_range_argument(const char* argument, Field::const_idx_t& low
     }
 }
 
+void AutoTuner::add_range_argument(const char* argument, const std::vector<Field::idx_t>& values) {
+    m_arguments.push_back({argument, {}});
+    for (const auto& val : values) {
+        m_arguments.back().second.push_back(val);
+    }
+}
+
 void AutoTuner::search() const {
     // source: https://gist.github.com/Yengas/9010715
     // search every permutation of m_arguments

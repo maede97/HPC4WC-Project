@@ -17,4 +17,13 @@ public:
      */
     static void apply(Field& f, const double& alpha = 1e-3);
 };
+
+/**
+ * @todo Document and unittest.
+ */
+class SimpleDiffusion {
+public:
+    static void apply(Field& f, const double& alpha = 1e-3);
+};
+
 }  // namespace HPC4WC

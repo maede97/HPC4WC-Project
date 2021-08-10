@@ -1,3 +1,4 @@
+#include <HPC4WC/config.h>
 #include <HPC4WC/boundary_condition.h>
 #include <HPC4WC/diffusion.h>
 #include <HPC4WC/field.h>
@@ -29,21 +30,21 @@ int main(int argc, char* argv[]) {
 
     CubeInitialCondition::apply(f);
 
-    std::ofstream initial_of("initial.mat");
-    IO::write(initial_of, f, nk / 2);
+    //std::ofstream initial_of("initial.mat");
+    //IO::write(initial_of, f, nk / 2);
 
     auto timer = Timer();
 
     for (int t = 0; t < num_timesteps; t++) {
         PeriodicBoundaryConditions::apply(f);
-        Diffusion::apply(f, 1. / 32.);
+        SimpleDiffusion::apply(f, 1. / 32.);
     }
 
     double time = timer.timeElapsed();
     std::cout << "Time elapsed: " << time << std::endl;
 
-    std::ofstream final_of("final.mat");
-    IO::write(final_of, f, nk / 2);
+    //std::ofstream final_of("final.mat");
+    //IO::write(final_of, f, nk / 2);
 
     return 0;
 }

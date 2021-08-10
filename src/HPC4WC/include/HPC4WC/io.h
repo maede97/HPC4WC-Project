@@ -32,6 +32,8 @@ public:
  * @brief Simple Argument parser.
  * 
  * Wrapper around https://github.com/sailormoon/flags.
+ * 
+ * @todo Write about default arguments. (and config arguments)
  */
 class ArgsParser {
 public:
