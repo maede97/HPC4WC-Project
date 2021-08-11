@@ -21,7 +21,7 @@ Field::Field(const_idx_t& ni, const_idx_t& nj, const_idx_t& nk, const_idx_t& num
 
 double Field::operator()(const_idx_t& i, const_idx_t& j, const_idx_t& k) const {
     if (k < 0 || k >= m_data.size() || i < 0 || i >= m_data[k].rows() || j < 0 || j >= m_data[k].cols()) {
-        throw std::out_of_range("double Field::operator()(i, j, k): out of bounds.");
+        throw std::out_of_range("double Field::operator()(i, j, k) const: out of bounds.");
     }
     return m_data[k](i, j);
 }

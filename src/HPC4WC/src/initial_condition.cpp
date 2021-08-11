@@ -9,8 +9,8 @@ void CubeInitialCondition::apply(Field& field) {
     const_idx_t i_2third = 2 * field.num_i() / 3 + num_halo;
     const_idx_t j_1third = field.num_j() / 3 + num_halo;
     const_idx_t j_2third = 2 * field.num_j() / 3 + num_halo;
-    const_idx_t k_1third = field.num_k() / 3 + num_halo;
-    const_idx_t k_2third = 2 * field.num_k() / 3 + num_halo;
+    const_idx_t k_1third = field.num_k() / 3;
+    const_idx_t k_2third = 2 * field.num_k() / 3;
 
     for (Field::idx_t i = i_1third; i < i_2third; i++) {
         for (Field::idx_t j = j_1third; j < j_2third; j++) {

@@ -161,7 +161,7 @@ void AutoTuner::search() const {
 
     Field::idx_t search_space_size = 1;
     for (auto& arg : m_arguments) {
-        search_space_size *= arg.second.size();
+        search_space_size *= (Field::idx_t) arg.second.size();
     }
     std::cout << "Performing search over " << search_space_size << " different possibilities." << std::endl;
 
@@ -189,7 +189,7 @@ void AutoTuner::search() const {
         }
 
         // do use a signed loop variable here because otherwise we have an integer underflow and then vector access error.
-        for (long index = counters.size() - 1; index >= 0; index--) {
+        for (long index = (long)counters.size() - 1; index >= 0; index--) {
             if (counters[index] + 1 < m_arguments[index].second.size()) {
                 counters[index]++;
                 break;
