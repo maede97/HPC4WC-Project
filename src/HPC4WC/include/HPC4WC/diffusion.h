@@ -6,7 +6,7 @@ namespace HPC4WC {
  * @brief Apply the diffusion equation to a field.
  * 
  * Applies the equation \f$ \frac {\partial f}{\partial t}=\alpha\nabla ^{2}f \f$.
- * It uses an improved laplace operator and don't uses temporary fields wherever possible.
+ * It uses an improved laplace operator and doesn't use temporary fields wherever possible.
  * @attention Applies the diffusion equation only to indices i and j (not k).
  */
 class Diffusion {
