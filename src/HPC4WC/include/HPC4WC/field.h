@@ -146,7 +146,7 @@ public:
      * @attention This does not any runtime checks on the dimensions, simply return false if they do not match.
      * @todo unittest.
      */
-    bool operator==(const Field& other);
+    bool operator==(const Field& other) const;
     
     /**
      * @brief Check two fields for inequality.
@@ -156,7 +156,7 @@ public:
      * @attention This does not any runtime checks on the dimensions, simply return false if they do not match.
      * @todo unittest.
      */
-    bool operator!=(const Field& other);
+    bool operator!=(const Field& other) const;
 
 private:
     idx_t m_ni;

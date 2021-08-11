@@ -72,3 +72,18 @@ TEST(Field, SetFromFieldPart) {
     EXPECT_THROW(f1.setFrom(ij_part, 0, 0, -1), std::out_of_range);
     EXPECT_THROW(f1.setFrom(ij_part, 0, 0, 2), std::out_of_range);
 }
+
+TEST(Field, Comparison) {
+    using namespace HPC4WC;
+    Field f1(10, 10, 2, 2, 1.);
+    Field f2(10, 10, 2, 2, 1.);
+    EXPECT_EQ(f1, f2);
+
+    f1(2, 2, 0) = 1.1;
+    EXPECT_NE(f1, f2);
+
+    Field f3(11, 10, 2, 2, 1.);
+    EXPECT_NE(f1, f3);
+    EXPECT_NE(f3, f1);
+    EXPECT_NE(f2, f3);
+}

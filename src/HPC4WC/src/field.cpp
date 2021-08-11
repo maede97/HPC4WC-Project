@@ -57,7 +57,7 @@ void Field::setFrom(const Eigen::MatrixXd& ij_plane_part, const_idx_t& i, const_
     m_data[k].block(i, j, ij_plane_part.rows(), ij_plane_part.cols()) = ij_plane_part;
 }
 
-bool Field::operator==(const Field& other) {
+bool Field::operator==(const Field& other) const {
     if (m_nk != other.m_nk || m_ni != other.m_ni || m_nj != other.m_nj || m_num_halo != other.m_num_halo)
         return false;
 
@@ -68,7 +68,7 @@ bool Field::operator==(const Field& other) {
     return true;
 }
 
-bool Field::operator!=(const Field& other) {
+bool Field::operator!=(const Field& other) const {
     // rely on the other operator implemented.
     return !(*this == other);
 }
