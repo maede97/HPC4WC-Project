@@ -5,6 +5,9 @@
 
 namespace HPC4WC {
 
+/**
+ * @brief Helper to write fields to a stream.
+ */
 class IO {
 public:
     /**

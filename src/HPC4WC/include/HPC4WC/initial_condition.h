@@ -6,7 +6,6 @@ namespace HPC4WC {
 
 /**
  * @brief Create a cube in a field.
- * @todo Unittest.
  */
 class CubeInitialCondition {
 public:
@@ -21,7 +20,6 @@ public:
 
 /**
  * @brief Applies a special IC where we fill diagonally 1.
- * @todo Unittest.
  */
 class DiagonalInitialCondition {
 public:
@@ -34,7 +32,6 @@ public:
 
 /**
  * @brief Applies a special IC where we fill a X in the middle of the field with ones.
- * @todo Unittest.
  */
 class XInitialCondition {
 public:

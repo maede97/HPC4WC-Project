@@ -5,6 +5,7 @@
 
 namespace HPC4WC {
 /**
+ * @brief Searches parameter-space for best parameters.
  * 
  * Examples (with executables/autotune_search.cpp):
  * 

@@ -3,7 +3,10 @@
 
 namespace HPC4WC {
 /**
- * Periodic boundary conditions, meaning values will be copied over.
+ * @brief Periodic boundary conditions
+ * 
+ * Values will be copied over.
+ * 
  * @attention Works only on i and j indices.
  */
 class PeriodicBoundaryConditions {
@@ -18,7 +21,9 @@ public:
 };
 
 /**
- * Dirichlet boundary conditions, meaning values will be set to a constant.
+ * @brief Dirichlet boundary conditions
+ * 
+ * Values will be set to a constant.
  */
 class DirichletBoundaryConditions {
 public:
