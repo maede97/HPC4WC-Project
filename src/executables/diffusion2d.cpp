@@ -1,5 +1,6 @@
-#include <HPC4WC/config.h>
+#include <HPC4WC/argsparser.h>
 #include <HPC4WC/boundary_condition.h>
+#include <HPC4WC/config.h>
 #include <HPC4WC/diffusion.h>
 #include <HPC4WC/field.h>
 #include <HPC4WC/initial_condition.h>

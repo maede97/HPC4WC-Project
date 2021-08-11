@@ -1,8 +1,8 @@
 #pragma once
 
 #include <Eigen/Core>
-#include <vector>
 #include <memory>
+#include <vector>
 
 namespace HPC4WC {
 
@@ -14,8 +14,8 @@ namespace HPC4WC {
  */
 class Field {
 public:
-    using idx_t = long; ///< field index type
-    using const_idx_t = const idx_t; ///< field const index type
+    using idx_t = long;               ///< field index type
+    using const_idx_t = const idx_t;  ///< field const index type
 
     /**
      * @brief Create a field.
@@ -26,7 +26,7 @@ public:
      * @throws std::logic_error If an index is negative (num_halo) or smaller or equal to zero (ni, nj, nk).
      */
     Field(const_idx_t& ni, const_idx_t& nj, const_idx_t& nk, const_idx_t& num_halo);
-       
+
     /**
      * @brief Create a field with a given value.
      * @param[in] ni Number of field nodes in the first direction
@@ -94,8 +94,6 @@ public:
      * @param[in] f The field to get the data from.
      * @param[in] offset_i The offset in i direction.
      * @param[in] offset_j The offset in j direction.
-     * 
-     * @todo Unittest.
      */
     void setFrom(const Field& f, Field::const_idx_t& offset_i, Field::const_idx_t& offset_j);
 
@@ -144,17 +142,15 @@ public:
      * @return True if the two fields match.
      * 
      * @attention This does not any runtime checks on the dimensions, simply return false if they do not match.
-     * @todo unittest.
      */
     bool operator==(const Field& other) const;
-    
+
     /**
      * @brief Check two fields for inequality.
      * @param[in] other The other field to compare against.
      * @return True if the two fields do not match. 
      * 
      * @attention This does not any runtime checks on the dimensions, simply return false if they do not match.
-     * @todo unittest.
      */
     bool operator!=(const Field& other) const;
 

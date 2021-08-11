@@ -1,7 +1,4 @@
 #include <HPC4WC/autotuner.h>
-#include <HPC4WC/io.h>
-
-#include <iostream>
 
 int main(int argc, char* argv[]) {
     using namespace HPC4WC;

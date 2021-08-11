@@ -5,6 +5,7 @@
 #include <HPC4WC/io.h>
 #include <HPC4WC/partitioner.h>
 #include <HPC4WC/timer.h>
+#include <HPC4WC/argsparser.h>
 
 #include <Eigen/Core>
 #include <fstream>

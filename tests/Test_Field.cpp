@@ -73,6 +73,19 @@ TEST(Field, SetFromFieldPart) {
     EXPECT_THROW(f1.setFrom(ij_part, 0, 0, 2), std::out_of_range);
 }
 
+TEST(Field, SetFromFieldOffset) {
+    using namespace HPC4WC;
+    Field f1(10, 10, 2, 2, 1.);
+    Field f2(3, 3, 2, 2, 2.);
+    Field f3(3, 3, 3, 2);
+
+    EXPECT_NO_THROW(f1.setFrom(f2, 0, 0));
+    EXPECT_THROW(f1.setFrom(f2, -3, 0), std::out_of_range);
+    EXPECT_THROW(f1.setFrom(f3, 0, 0), std::logic_error);
+
+    EXPECT_DOUBLE_EQ(f1(2, 2, 0), 2.);
+}
+
 TEST(Field, Comparison) {
     using namespace HPC4WC;
     Field f1(10, 10, 2, 2, 1.);
