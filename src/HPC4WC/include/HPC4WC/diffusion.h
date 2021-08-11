@@ -5,7 +5,7 @@ namespace HPC4WC {
 /**
  * @brief Apply the diffusion equation to a field.
  * 
- * Applies the equation \f$ \frac {\partial f}{\partial t}}=\alpha\nabla ^{2}f \f$.
+ * Applies the equation \f$ \frac {\partial f}{\partial t}=\alpha\nabla ^{2}f \f$.
  * It uses an improved laplace operator and don't uses temporary fields wherever possible.
  * @attention Applies the diffusion equation only to indices i and j (not k).
  */
@@ -22,7 +22,7 @@ public:
 /**
  * @brief Apply the diffusion equation to a field.
  * 
- * Applies the equation \f$ \frac {\partial f}{\partial t}}=\alpha\nabla ^{2}f \f$.
+ * Applies the equation \f$ \frac {\partial f}{\partial t}=\alpha\nabla ^{2}f \f$.
  * It uses a simplified approach but can benefit from blocking.
  * @attention Applies the diffusion equation only to indices i and j (not k).
  */
