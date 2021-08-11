@@ -1,5 +1,4 @@
 #include <HPC4WC/initial_condition.h>
-#include <HPC4WC/io.h>
 #include <gtest/gtest.h>
 
 TEST(InitialCondition, CubeInitialCondition) {

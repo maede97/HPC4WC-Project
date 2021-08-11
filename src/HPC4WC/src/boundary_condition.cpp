@@ -47,27 +47,27 @@ void DirichletBoundaryConditions::apply(Field& field, const double& value) {
     Field::const_idx_t nj = field.num_j();
     Field::const_idx_t num_halo = field.num_halo();
     for (Field::idx_t k = 0; k < field.num_k(); k++) {
-        // copy top to bottom halo
+        // bottom halo
         for (Field::idx_t i = 0; i < num_halo; i++) {
             for (Field::idx_t j = num_halo; j < nj + num_halo; j++) {
                 field(ni + i + num_halo, j, k) = value;
             }
         }
 
-        // copy bottom to top halo
+        // top halo
         for (Field::idx_t i = 0; i < num_halo; i++) {
             for (Field::idx_t j = num_halo; j < nj + num_halo; j++) {
                 field(i, j, k) = value;
             }
         }
-        // copy left to right halo
+        // right halo
         for (Field::idx_t i = 0; i < ni + 2 * num_halo; i++) {
             for (Field::idx_t j = 0; j < num_halo; j++) {
                 field(i, j + nj + num_halo, k) = value;
             }
         }
 
-        // copy right to left halo
+        // left halo
         for (Field::idx_t i = 0; i < ni + 2 * num_halo; i++) {
             for (Field::idx_t j = 0; j < num_halo; j++) {
                 field(i, j, k) = value;

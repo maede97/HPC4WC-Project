@@ -4,15 +4,15 @@
 namespace HPC4WC {
 
 void SimpleDiffusion::laplacian(const Field& f_in, Field& f_out, Field::const_idx_t& offset_i, Field::const_idx_t& offset_j) {
-    if(f_out.num_k() != f_in.num_k() || f_out.num_halo() != f_in.num_halo()) {
+    if (f_out.num_k() != f_in.num_k() || f_out.num_halo() != f_in.num_halo()) {
         throw std::logic_error("SimpleDiffusion::laplacian: in/out fields do not have the same number of k/halopoints.");
     }
-    if(f_out.num_i() >= f_in.num_i() || f_out.num_j() >= f_in.num_j()) {
+    if (f_out.num_i() > f_in.num_i() + f_in.num_halo() || f_out.num_j() > f_in.num_j() + f_in.num_halo()) {
         throw std::out_of_range("SimpleDiffusion::laplacian: The output field is too big.");
     }
 
     // Check for offset out of bounds
-    if(f_out.num_i() + offset_i > f_in.num_i() + f_in.num_halo() || f_out.num_j() + offset_j > f_in.num_j() + f_in.num_halo()) {
+    if (f_out.num_i() + offset_i > f_in.num_i() + f_in.num_halo() || f_out.num_j() + offset_j > f_in.num_j() + f_in.num_halo()) {
         throw std::out_of_range("SimpleDiffusion::laplacian: Offset is out of range.");
     }
     if (offset_i < 0 && -offset_i < f_in.num_halo() - 1 || offset_j < 0 && -offset_j < f_in.num_halo() - 1) {
@@ -60,7 +60,7 @@ void SimpleDiffusion::apply(Field& f, const double& alpha) {
         block_j = f.num_j();
     }
 
-    if(f.num_i() % block_i != 0 || f.num_j() % block_j != 0) {
+    if (f.num_i() % block_i != 0 || f.num_j() % block_j != 0) {
         throw std::logic_error("Block size does not match the field given.");
     }
 
