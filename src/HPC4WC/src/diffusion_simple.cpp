@@ -44,21 +44,7 @@ void SimpleDiffusion::time_integration(const Field& f_in, Field& f_out, const do
 }
 
 void SimpleDiffusion::apply(Field& f, const double& alpha) {
-    Field::idx_t block_i, block_j;
-
-    if (Config::BLOCK_I && Config::BLOCK_J) {
-        block_i = Config::BLOCK_SIZE_I;
-        block_j = Config::BLOCK_SIZE_J;
-    } else if (Config::BLOCK_I) {
-        block_i = Config::BLOCK_SIZE_I;
-        block_j = f.num_j();
-    } else if (Config::BLOCK_J) {
-        block_i = f.num_i();
-        block_j = Config::BLOCK_SIZE_J;
-    } else {
-        block_i = f.num_i();
-        block_j = f.num_j();
-    }
+    Field::const_idx_t block_i = BLOCK_SIZE_I, block_j=BLOCK_SIZE_J;
 
     if (f.num_i() % block_i != 0 || f.num_j() % block_j != 0) {
         throw std::logic_error("Block size does not match the field given.");
