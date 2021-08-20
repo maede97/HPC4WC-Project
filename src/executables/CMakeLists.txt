@@ -26,6 +26,12 @@ target_link_libraries(block_i eigen HPC4WC)
 target_include_directories(block_i PUBLIC HPC4WC)
 add_dependencies(block_i diffusion2d)
 
+
+add_executable(block_ij block_ij.cpp)
+target_link_libraries(block_ij eigen HPC4WC)
+target_include_directories(block_ij PUBLIC HPC4WC)
+add_dependencies(block_ij diffusion2d)
+
 add_executable(blocking_diff_simple blocking_diff_simple.cpp)
 target_link_libraries(blocking_diff_simple eigen HPC4WC)
 target_include_directories(blocking_diff_simple PUBLIC HPC4WC)
