@@ -1,47 +1,47 @@
 -blocking-size-i 64 -blocking-size-j 64
-Time elapsed: 5.8559
+Time elapsed: 5.76801
 
 -blocking-size-i 64 -blocking-size-j 128
-Time elapsed: 5.81625
+Time elapsed: 5.69254
 
 -blocking-size-i 64 -blocking-size-j 512
-Time elapsed: 5.89696
+Time elapsed: 5.78355
 
 -blocking-size-i 64 -blocking-size-j 1024
-Time elapsed: 6.10208
+Time elapsed: 5.89888
 
 -blocking-size-i 128 -blocking-size-j 64
-Time elapsed: 5.94847
+Time elapsed: 5.78884
 
 -blocking-size-i 128 -blocking-size-j 128
-Time elapsed: 5.92754
+Time elapsed: 5.77727
 
 -blocking-size-i 128 -blocking-size-j 512
-Time elapsed: 5.98001
+Time elapsed: 5.84225
 
 -blocking-size-i 128 -blocking-size-j 1024
-Time elapsed: 6.12372
+Time elapsed: 5.88225
 
 -blocking-size-i 512 -blocking-size-j 64
-Time elapsed: 5.96175
+Time elapsed: 5.79277
 
 -blocking-size-i 512 -blocking-size-j 128
-Time elapsed: 5.88059
+Time elapsed: 5.80687
 
 -blocking-size-i 512 -blocking-size-j 512
-Time elapsed: 6.44247
+Time elapsed: 6.04284
 
 -blocking-size-i 512 -blocking-size-j 1024
-Time elapsed: 6.80899
+Time elapsed: 6.68536
 
 -blocking-size-i 1024 -blocking-size-j 64
-Time elapsed: 5.97851
+Time elapsed: 5.80276
 
 -blocking-size-i 1024 -blocking-size-j 128
-Time elapsed: 5.92739
+Time elapsed: 5.78144
 
 -blocking-size-i 1024 -blocking-size-j 512
-Time elapsed: 6.673
+Time elapsed: 6.39815
 
 -blocking-size-i 1024 -blocking-size-j 1024
-Time elapsed: 6.89161
+Time elapsed: 6.85014
