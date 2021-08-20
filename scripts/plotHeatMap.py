@@ -11,7 +11,9 @@ from matplotlib.ticker import MaxNLocator
 
 # be in subdirectory build/sry/executables and type make && ./block_i > ../../../scripts/output/name.txt
 # run the file in subfolder scripts python3 plotHeatMap.py
-data = open("output/output_block_ij_compiletime.txt","r")
+# data = open("output/output_block_ij_big_runtime.txt","r")
+data = open("output/output_block_ij_big_compiletime.txt","r")
+
 number = 0
 blocking_i = []
 blocking_j = []
@@ -71,8 +73,10 @@ df = pd.DataFrame({"block size i": idx_i, "block size j":idx_j, "times ij":time_
 result = df.pivot(index="block size i", columns="block size j", values="times ij")
 cmap = sns.diverging_palette(220, 20, as_cmap=True)
 cmap = sns.color_palette("RdYlGn_r", as_cmap=True)
-sns.heatmap(result,annot=True, fmt="g",cmap=cmap,cbar_kws={'ticks':[2,3,4,5,6,7,8,9], 'format':'%.0fs'},vmin = 2, vmax=9)
+sns.heatmap(result,annot=True, fmt="g",cmap=cmap,cbar_kws={'ticks':[5,15,25,35,45], 'format':'%.0fs'},vmin = 5, vmax=45)
 # plt.title("Heatmap of ij-blocking")
 plt.tight_layout()
-plt.savefig("plots/block_ij_compiletime.png")
+# plt.savefig("plots/block_ij_big_runtime.png")
+plt.savefig("plots/block_ij_big_compiletime.png")
+
 # plt.show()
