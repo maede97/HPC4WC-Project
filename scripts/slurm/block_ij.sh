@@ -9,9 +9,8 @@
 #SBATCH --partition=normal
 #SBATCH --constraint=gpu
 #SBATCH --hint=nomultithread
-#SBATCH --output=../output/block_ij.txt
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 cd ../../build/src/executables
-srun ./block_ij
+srun ./diffusion2d

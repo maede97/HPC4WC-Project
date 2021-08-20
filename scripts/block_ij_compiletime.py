@@ -25,8 +25,8 @@ for i in sizes:
         subprocess.run("make diffusion2d", shell=True, stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
 
         # Execute and measure
-        os.chdir("~/HPC4WC-Project/build/src/executables")
-        p = subprocess.run("./diffusion2d", shell=True, stderr=subprocess.DEVNULL, stdout=subprocess.PIPE)
+        os.chdir("~/HPC4WC-Project/scripts/slurm")
+        p = subprocess.run("bash block_ij.sh", shell=True, stderr=subprocess.DEVNULL, stdout=subprocess.PIPE)
         data = p.stdout
 
         print(data)
