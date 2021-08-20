@@ -54,11 +54,10 @@ sns.set_theme()
 
 idx_i = [x[0] for x in blocking_ij]
 idx_j = [x[1] for x in blocking_ij]
-print(idx_i)
-print(idx_j)
-df = pd.DataFrame({"blocking i": idx_i, "blocking j":idx_j, "times ij":time_ij})
-result = df.pivot(index="blocking i", columns="blocking j", values="times ij")
+df = pd.DataFrame({"blocksize i": idx_i, "blocksize j":idx_j, "times ij":time_ij})
+result = df.pivot(index="blocksize i", columns="blocksize j", values="times ij")
 cmap = sns.diverging_palette(220, 20, as_cmap=True)
 sns.heatmap(result,annot=True, fmt="g",cmap=cmap)
 plt.title("Heatmap of ij-blocking")
-plt.show()
+plt.savefig("plots/heatMap1.png")
+# plt.show()
