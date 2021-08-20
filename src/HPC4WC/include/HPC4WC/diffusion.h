@@ -9,6 +9,10 @@ namespace HPC4WC {
  * It uses a simplified approach but can benefit from blocking.
  * @attention Applies the diffusion equation only to indices i and j (not k).
  */
+class Diffusion {
+    public:
+    static void apply(Field& f, const double& alpha = 1e-3);
+};
 class SimpleDiffusion {
 public:
     /**
