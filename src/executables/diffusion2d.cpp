@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
 
     ArgsParser argsParser(argc, argv);
 
-    Field::idx_t ni = 64, nj = 64, nk = 64, num_halo = 2, num_timesteps = 100;
+    Field::idx_t ni = 128, nj = 128, nk = 3, num_halo = 2, num_timesteps = 100;
     argsParser.add_argument(ni, "ni", "Number of interiour points in i direction.");
     argsParser.add_argument(nj, "nj", "Number of interiour points in j direction.");
     argsParser.add_argument(nk, "nk", "Number of interiour points in k direction.");
@@ -31,8 +31,8 @@ int main(int argc, char* argv[]) {
 
     CubeInitialCondition::apply(f);
 
-    //std::ofstream initial_of("initial.mat");
-    //IO::write(initial_of, f, nk / 2);
+    // std::ofstream initial_of("initial.mat");
+    // IO::write(initial_of, f, nk / 2);
 
     auto timer = Timer();
 
@@ -44,8 +44,8 @@ int main(int argc, char* argv[]) {
     double time = timer.timeElapsed();
     std::cout << "Time elapsed: " << time << std::endl;
 
-    //std::ofstream final_of("final.mat");
-    //IO::write(final_of, f, nk / 2);
+    // std::ofstream final_of("final.mat");
+    // IO::write(final_of, f, nk / 2);
 
     return 0;
 }
