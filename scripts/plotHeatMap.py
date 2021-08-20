@@ -5,10 +5,13 @@ import subprocess
 import os
 import seaborn as sns
 import pandas as pd
+from matplotlib.colors import LogNorm
+from matplotlib.ticker import MaxNLocator
+
 
 # be in subdirectory build/sry/executables and type make && ./block_i > ../../../scripts/output/name.txt
 # run the file in subfolder scripts python3 plotHeatMap.py
-data = open("output/out.txt","r")
+data = open("output/output_block_ij_compiletime.txt","r")
 number = 0
 blocking_i = []
 blocking_j = []
@@ -39,13 +42,23 @@ for lines in data.readlines():
         readTimeflag = 3
     if "on average" in lines:
         if readTimeflag == 1:
-            time_ij.append(float(lines.split("took ")[1].split(" seconds")[0]))
+            time_ij.append(round(float(lines.split("took ")[1].split(" seconds")[0]),2))
             readTimeflag = 0
         elif readTimeflag == 2:
-            time_i.append(float(lines.split("took ")[1].split(" seconds")[0]))
+            time_i.append(round(float(lines.split("took ")[1].split(" seconds")[0]),2))
             readTimeflag = 0
         elif readTimeflag == 3:
-            time_j.append(float(lines.split("took ")[1].split(" seconds")[0]))
+            time_j.append(round(float(lines.split("took ")[1].split(" seconds")[0]),2))
+            readTimeflag = 0
+    if "Time elapsed" in lines:
+        if readTimeflag == 1:
+            time_ij.append(round(float(lines.split(": ")[1]),2))
+            readTimeflag = 0
+        elif readTimeflag == 2:
+            time_i.append(round(float(lines.split(": ")[1]),2))
+            readTimeflag = 0
+        elif readTimeflag == 3:
+            time_j.append(round(float(lines.split(": ")[1]),2))
             readTimeflag = 0
 
 
@@ -54,10 +67,12 @@ sns.set_theme()
 
 idx_i = [x[0] for x in blocking_ij]
 idx_j = [x[1] for x in blocking_ij]
-df = pd.DataFrame({"blocksize i": idx_i, "blocksize j":idx_j, "times ij":time_ij})
-result = df.pivot(index="blocksize i", columns="blocksize j", values="times ij")
+df = pd.DataFrame({"block size i": idx_i, "block size j":idx_j, "times ij":time_ij})
+result = df.pivot(index="block size i", columns="block size j", values="times ij")
 cmap = sns.diverging_palette(220, 20, as_cmap=True)
-sns.heatmap(result,annot=True, fmt="g",cmap=cmap)
-plt.title("Heatmap of ij-blocking")
-plt.savefig("plots/heatMap1.png")
+cmap = sns.color_palette("RdYlGn_r", as_cmap=True)
+sns.heatmap(result,annot=True, fmt="g",cmap=cmap,cbar_kws={'ticks':[2,3,4,5,6,7,8,9], 'format':'%.0fs'},vmin = 2, vmax=9)
+# plt.title("Heatmap of ij-blocking")
+plt.tight_layout()
+plt.savefig("plots/block_ij_compiletime.png")
 # plt.show()
