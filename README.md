@@ -3,6 +3,9 @@
 ![UnitTests](https://github.com/maede97/HPC4WC-Project/actions/workflows/unittests.yml/badge.svg)
 ![Documentation](https://github.com/maede97/HPC4WC-Project/actions/workflows/documentation.yml/badge.svg)
 
+## Report
+The report can be found in this directory via [report.pdf](report.pdf).
+
 ## Requirements
 - CMake >3.11
 - C++ 17/20
