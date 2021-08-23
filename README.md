@@ -10,13 +10,13 @@
 
 ## Build Instructions
 Run the following commands, after you have cloned the repository:
-```[bash]
+```
 mkdir build
 cd build
 cmake ..
 make
 ```
-The CMake infrastructure will automatically download all necesarry libraries.
+The CMake infrastructure will automatically download all necessary libraries.
 
 ## Documentation
 The documentation is built using doxygen and publicly available: [https://maede97.github.io/HPC4WC-Project](https://maede97.github.io/HPC4WC-Project)
